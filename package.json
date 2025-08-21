@@ -1,0 +1,17 @@
+{
+  "name": "kalyani-portfolio-ai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo \"no build step\"",
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "openai": "^5.13.1"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
