@@ -1,3 +1,9 @@
-﻿node_modules
-.env
-.DS_Store
+﻿# Create .gitignore if it doesn't exist
+if (!(Test-Path ".gitignore")) { New-Item .gitignore -ItemType File }
+
+# Append the ignore rules (won't duplicate if you already added them)
+Add-Content .gitignore "node_modules"
+Add-Content .gitignore ".env"
+Add-Content .gitignore ".env.local"
+Add-Content .gitignore ".vercel"
+Add-Content .gitignore ".vercel.bak"

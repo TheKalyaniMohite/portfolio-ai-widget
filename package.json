@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vercel dev",
     "build": "echo \"no build step\"",
-    "start": "vercel dev"
+    "dev": "node -e \"console.log('Use: vercel dev')\"",
+    "start": "node -e \"console.log('Use: vercel dev')\""
   },
   "dependencies": {
-    "openai": "^5.13.1"
+    "openai": "^5.15.0"
   },
   "engines": {
     "node": "18.x"
