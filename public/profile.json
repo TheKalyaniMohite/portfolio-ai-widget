@@ -1,0 +1,103 @@
+{
+    "name": "Kalyani Mohite",
+    "headline": "Data Analyst | SQL, Python, Power BI | MS CS @ GMU (May 2025)",
+    "summary": "Computer Science graduate passionate about data analysis and building meaningful solutions. Enjoys working at the intersection of logic and creativity, creating dashboards, analyzing patterns, and developing apps that improve everyday tasks.",
+    "education": [
+      {
+        "degree": "M.S. Computer Science",
+        "school": "George Mason University",
+        "dates": "Aug 2023 – May 2025",
+        "gpa": "3.9",
+        "coursework": ["Machine Learning", "Generative AI", "Data Mining", "Advanced Algorithms", "Software Development"]
+      },
+      {
+        "degree": "B.E. Computer Science and Engineering",
+        "school": "University of Pune",
+        "dates": "Aug 2018 – Jul 2022",
+        "gpa": "3.5"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Data Analyst",
+        "company": "Fortune Services",
+        "location": "Nashik, India",
+        "dates": "Aug 2022 – Aug 2023",
+        "highlights": [
+          "Migrated & modeled 1 TB marketing + CRM data on AWS S3/Redshift/dbt; improved campaign ROI by 20%",
+          "Built Python ETL & optimized SQL scripts; +30% throughput, -40% manual effort",
+          "Collaborated on churn models (RF, LR) achieving 85%+ accuracy"
+        ]
+      },
+      {
+        "title": "Data & Marketing Assistant",
+        "company": "Early Identification Program | GMU",
+        "location": "Fairfax, VA",
+        "dates": "Apr 2024 – May 2025",
+        "highlights": [
+          "Redshift/PostgreSQL ETL for 500+ student records; +25% data accuracy, -40% pipeline runtime",
+          "Built Power BI/Tableau dashboards (drilldowns, scheduled refresh); -30% report time",
+          "Documented workflows & insights; supported 200+ data-driven decisions/quarter"
+        ]
+      },
+      {
+        "title": "Data Analyst",
+        "company": "Cybeorg Education Technology",
+        "location": "Remote",
+        "dates": "Jan 2023 – Jul 2023",
+        "highlights": [
+          "Automated sentiment analysis for 2,000+ feedback entries; +12% retention",
+          "A/B tested recommendations; deployed via Flask app with monitoring"
+        ]
+      },
+      {
+        "title": "Data Analyst Trainee",
+        "company": "Microsoft – GMU",
+        "location": "Remote",
+        "dates": "Jun 2024 – Aug 2024",
+        "highlights": [
+          "Azure Synapse pipelines for 500 GB/day; ~40% lower latency",
+          "Power BI with DAX + R visuals; cut ad-hoc report requests by half",
+          "Basic anomaly detection (Azure ML + Python); -15% incident resolution time"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "AI-Powered Resume Analyzer & Job Matcher",
+        "highlights": [
+          "Flask on Google Cloud (Cloud Functions, BigQuery, Cloud Storage)",
+          "spaCy + TF-IDF + cosine similarity; near real-time (<500 ms) matching",
+          "-70% manual job-matching effort"
+        ]
+      },
+      {
+        "title": "Predictive Maintenance Dashboard",
+        "highlights": [
+          "Python ETL → BigQuery; Power BI visualizations",
+          "XGBoost on AWS SageMaker (92% precision); integrated AWS Lambda alerts"
+        ]
+      },
+      {
+        "title": "Smart Door Chat",
+        "highlights": [
+          "Raspberry Pi 4 + YOLOv5n; <100 ms detection; STT with ~95% accuracy",
+          "MQTT + Firebase; won 1st place at GMU Hackathon; dashboards for analytics"
+        ]
+      },
+      {
+        "title": "Market Basket Analysis",
+        "link": "https://github.com/TheKalyaniMohite/Market-Basket-Analysis",
+        "highlights": [
+          "Instacart dataset; association rules at aisle/category level",
+          "Bundle ideas and cross-merchandising insights"
+        ]
+      }
+    ],
+    "skills": [
+      "Python", "SQL", "R", "Power BI", "Tableau",
+      "TensorFlow", "XGBoost", "Edge AI",
+      "AWS", "Google Cloud", "Firebase"
+    ]
+  }
+  
