@@ -1,331 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kalyani Mohite Portfolio</title>
 
   <style>
-    /* =========================
-       Base / Layout (unchanged)
-       ========================= */
     html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100vh;
-      background: #1a1f2c;
-      color: #fff;
-      font-family: 'Inter', Helvetica, sans-serif;
+      margin: 0; padding: 0;
+      background: #1a1f2c; color: #fff;
+      font-family: 'Inter', Helvetica, Arial, sans-serif;
       overflow-x: hidden;
     }
-    body { padding-top: 64px; }
-    .hidden { display:none; }
 
-    /* Top Navigation (kept from your file) */
+    /* Top nav (simple demo layout) */
     .main-top-nav {
-      background: rgba(32, 39, 55, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      width: 100%; height: 64px;
-      box-shadow: 0 4px 30px rgba(0,0,0,.3);
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      transition: all .3s ease;
+      position: fixed; top: 0; left: 0; right: 0; height: 64px;
       display: flex; align-items: center; justify-content: center;
+      padding: 0 16px; z-index: 1000;
+      background: rgba(0,0,0,0.95);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .main-top-nav .nav-flex {
-      width: 100%; max-width: 1200px;
+    .nav-flex {
+      width: 100%; max-width: 1100px;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 30px; height: 64px;
     }
-    .main-top-nav .nav-logo {
-      font-size: 1.75rem; font-weight: 700;
-      background: linear-gradient(45deg,#00e676,#00b8d4);
-      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-      letter-spacing:.05em;
-      text-shadow: 0 2px 10px rgba(0,230,118,.3);
+    .nav-logo {
+      font-weight: 700; letter-spacing: 0.03em;
+      background: linear-gradient(45deg, #00e676, #00b8d4);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .main-top-nav ul {
-      list-style:none; margin:0; padding:0;
-      display:flex; gap:1.5rem; align-items:center; height:64px;
+      list-style: none; margin: 0; padding: 0; display: flex; gap: 16px;
     }
-    .main-top-nav li {
-      position: relative; cursor: pointer;
-      padding: 8px 20px; border-radius: 12px;
-      font-size: 1rem; font-weight: 500;
-      transition: all .3s ease; color: rgba(255,255,255,.85);
-    }
-    .main-top-nav li:hover, .main-top-nav li.active {
-      background: rgba(0,230,118,.15);
-      color:#fff; transform: translateY(-1px);
-      box-shadow: 0 4px 15px rgba(0,230,118,.2);
-    }
-    .main-top-nav li a { color:inherit; text-decoration:none; display:block; padding:.2rem 0; }
+    .main-top-nav li a { color: #fff; text-decoration: none; opacity: 0.85; }
+    .main-top-nav li a:hover { opacity: 1; }
 
-    /* Sections (kept simplified) */
-    .section { min-height: 100vh; padding: 80px 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    /* Sections */
     .hero {
-      min-height: 100vh; width:100%;
-      display:flex; align-items:flex-start; justify-content:center;
-      padding: 8rem 2rem 2rem; box-sizing:border-box;
+      padding-top: 100px; min-height: 58vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding-left: 16px; padding-right: 16px;
     }
     .jumbotron {
-      background: rgba(255,255,255,.03);
-      backdrop-filter: blur(10px);
-      border-radius: 20px; padding: 3.5rem;
-      max-width: 900px; width: 90%; margin: 0 auto;
-      display:flex; flex-direction:column; align-items:center;
-      border: 1px solid rgba(255,255,255,.05);
+      max-width: 920px; padding: 2.2rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; backdrop-filter: blur(8px);
     }
     .jumbotron h1 {
-      font-size: 3.5rem; font-weight: 700; margin-bottom: 2rem;
-      background: linear-gradient(45deg,#00e676,#00b8d4);
-      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      margin: 0 0 12px; font-size: 2.4rem;
+      background: linear-gradient(45deg, #00e676, #00b8d4);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .hero-intro { font-size:1.2rem; line-height:1.8; color:rgba(255,255,255,.9); text-align:justify; text-align-last:center; }
-    .section-title {
-      text-align:center; font-size:2.5rem; font-weight:700; margin-bottom:3rem;
-      background: linear-gradient(45deg,#00e676,#00b8d4); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-      position:relative; padding-bottom:1rem;
+    .section {
+      padding: 60px 18px; max-width: 1000px; margin: 0 auto;
     }
-    .section-title::after {
-      content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
-      width:60px; height:3px; background:linear-gradient(90deg,#00e676,#00b8d4); border-radius:2px;
+    .section h2 {
+      text-align: center; margin-bottom: 14px;
+      background: linear-gradient(45deg, #00e676, #00b8d4);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 16px; margin: 10px 0;
+    }
+    .social-row { display: flex; gap: 12px; justify-content: center; margin-top: 12px; }
+    .social-row a {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #00e676; text-decoration: none;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
-    /* ==========================================
-       Floating AI Button + Chat-style Widget CSS
-       ========================================== */
+    /* ========= Floating Chat-Style AI Widget ========= */
     .floating-ai-button {
-      position: fixed; bottom: 28px; right: 28px;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: linear-gradient(45deg,#00e676,#00b8d4);
-      border: none; color:#111; font-size: 24px; cursor: pointer;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow: 0 8px 25px rgba(0,230,118,.3);
-      transition: transform .2s ease, box-shadow .2s ease;
-      z-index: 1000;
+      position: fixed; bottom: 24px; right: 24px; z-index: 1200;
+      width: 58px; height: 58px; border-radius: 50%;
+      border: none; cursor: pointer; color: #111; font-size: 22px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(45deg, #00e676, #00b8d4);
+      box-shadow: 0 10px 30px rgba(0,230,118,0.25);
     }
-    .floating-ai-button:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 35px rgba(0,230,118,.4); }
-
     .ai-widget {
-      position: fixed; bottom: 100px; right: 28px;
-      width: 380px; max-height: 560px;
-      background: rgba(26,31,44,.98);
-      border:1px solid rgba(255,255,255,.1); border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
-      z-index: 999; display: flex; flex-direction: column;
-      opacity:0; transform: translateY(8px) scale(.98); visibility:hidden;
-      transition: all .25s ease;
-      overflow: hidden;
+      position: fixed; bottom: 92px; right: 24px; z-index: 1199;
+      width: 360px; max-height: 540px; overflow: hidden;
+      background: rgba(20,22,30,0.96);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      transform: translateY(10px) scale(0.98); opacity: 0; visibility: hidden;
+      transition: all 0.25s ease;
     }
-    .ai-widget.active { opacity:1; visibility: visible; transform: translateY(0) scale(1); }
+    .ai-widget.active { transform: none; opacity: 1; visibility: visible; }
 
-    .ai-header {
-      background: linear-gradient(45deg,#00e676,#00b8d4);
-      color:#111; padding: 14px 16px; font-weight:700; display:flex; align-items:center; justify-content:space-between;
+    .ai-widget-header {
+      background: linear-gradient(45deg, #00e676, #00b8d4);
+      color: #111; padding: 14px 14px; display: flex;
+      align-items: center; justify-content: space-between; font-weight: 600;
     }
-    .ai-close {
-      border:none; background:transparent; color:#111; font-size:22px; cursor:pointer; border-radius:50%; width:28px; height:28px;
+    .ai-widget-close {
+      width: 28px; height: 28px; border: none; cursor: pointer;
+      background: rgba(0,0,0,0.08); color: #111; border-radius: 50%;
     }
-    .ai-close:hover { background: rgba(0,0,0,.08); }
 
-    /* Chat area */
     .ai-chat {
-      padding: 14px; overflow-y:auto; flex: 1 1 auto;
-      scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.25) transparent;
+      height: 300px; padding: 12px; overflow-y: auto; overflow-x: hidden;
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) transparent;
     }
-    .ai-chat::-webkit-scrollbar { width: 8px; }
-    .ai-chat::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); border-radius: 10px; }
-
+    .ai-chat::-webkit-scrollbar { width: 6px; }
+    .ai-chat::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
     .ai-msg {
-      max-width: 85%; padding: 10px 12px; border-radius: 12px; line-height:1.45;
-      margin: 6px 0; word-wrap: break-word; white-space: pre-wrap;
-    }
-    .ai-msg.user {
-      margin-left: auto;
-      background: linear-gradient(45deg,#00b8d4,#00e676); color:#111;
-      border-top-right-radius: 6px;
+      margin: 8px 0; padding: 10px 12px; border-radius: 10px; max-width: 85%;
+      line-height: 1.45; white-space: pre-wrap;
     }
     .ai-msg.bot {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.08);
-      border-top-left-radius: 6px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
     }
-    .ai-typing {
-      display:inline-block; width: 16px; height:16px; border-radius:50%;
-      border: 2px solid rgba(255,255,255,.3); border-top-color:#00e676; animation: spin .8s linear infinite;
-      vertical-align: middle;
+    .ai-msg.user {
+      background: rgba(0,230,118,0.15); border: 1px solid rgba(0,230,118,0.25); margin-left: auto;
     }
-    @keyframes spin { to { transform: rotate(360deg);} }
 
-    /* Suggestions row */
-    .ai-suggestions {
-      display:flex; gap:8px; padding: 10px 14px 0; flex-wrap: wrap;
-    }
+    .ai-controls { padding: 10px 10px 6px; background: rgba(0,0,0,0.08); }
+    .ai-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
     .ai-chip {
-      font-size:.85rem; padding: 6px 10px; border-radius: 16px; cursor:pointer;
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
-      transition:.2s all ease;
+      padding: 6px 10px; border-radius: 12px; font-size: 12px; cursor: pointer;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff;
     }
-    .ai-chip:hover { background: rgba(0,230,118,.18); border-color:#00e676; }
 
-    /* Input row */
-    .ai-input-row {
-      display:flex; align-items:flex-end; gap: 8px; padding: 8px 12px 12px; border-top: 1px solid rgba(255,255,255,.08);
-    }
+    .ai-input-wrap { position: relative; }
+    .ai-input-row { display: flex; gap: 8px; align-items: flex-end; }
     .ai-textarea {
-      flex: 1 1 auto; min-height: 44px; max-height: 120px;
-      resize: none; padding: 10px 12px; border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); color:#fff;
-      font-size: .95rem; line-height: 1.35; outline: none;
-      overflow-y: auto;
+      flex: 1; min-height: 44px; max-height: 120px; resize: none;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      color: #fff; border-radius: 10px; padding: 10px; font-size: 14px;
+      overflow-y: auto; overflow-x: hidden;
     }
-    .ai-textarea:focus { border-color: #00e676; box-shadow: 0 0 0 2px rgba(0,230,118,.18); }
-    .ai-send {
-      width: 44px; height:44px; border-radius: 10px; border:none; color:#111; cursor:pointer;
-      background: linear-gradient(45deg,#00e676,#00b8d4); display:flex; align-items:center; justify-content:center;
-      font-size: 18px;
-      box-shadow: 0 6px 16px rgba(0,230,118,.3);
+    .ai-send-btn {
+      width: 44px; height: 44px; border-radius: 10px; border: none;
+      background: #00e676; color: #111; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
     }
-    .ai-send:disabled { opacity:.6; cursor: not-allowed; box-shadow:none; }
 
-    @media (max-width: 768px) {
-      .ai-widget { right: 16px; left: 16px; width: auto; bottom: 90px; max-height: 70vh; }
-      .floating-ai-button { right: 16px; bottom: 16px; }
+    /* Typeahead dropdown */
+    .ai-suggestions {
+      position: absolute; left: 0; right: 52px; bottom: 52px;
+      background: rgba(30,34,48,0.98);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      max-height: 160px; overflow-y: auto; z-index: 10; display: none;
+      scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) transparent;
+    }
+    .ai-suggestions.active { display: block; }
+    .ai-suggestion-item {
+      padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.06);
+      cursor: pointer; font-size: 14px;
+    }
+    .ai-suggestion-item:last-child { border-bottom: none; }
+    .ai-suggestion-item:hover, .ai-suggestion-item.active {
+      background: rgba(0,230,118,0.12);
+    }
+
+    /* Typing indicator */
+    .ai-typing {
+      display: inline-block; width: 20px; height: 10px; position: relative;
+    }
+    .ai-typing::before, .ai-typing::after, .ai-typing span {
+      content: ""; position: absolute; width: 6px; height: 6px;
+      background: #00e676; border-radius: 50%; top: 0; animation: dots 1s infinite;
+    }
+    .ai-typing span { left: 7px; animation-delay: 0.1s; }
+    .ai-typing::after { left: 14px; animation-delay: 0.2s; }
+    @keyframes dots {
+      0%, 20% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-4px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+
+    @media (max-width: 600px) {
+      .ai-widget { left: 16px; right: 16px; width: unset; bottom: 86px; }
+      .floating-ai-button { bottom: 18px; right: 18px; }
     }
   </style>
-</head>
 
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
 <body>
-  <!-- Top Nav -->
-  <nav class="main-top-nav" id="mainTopNav">
+
+  <!-- Simple Nav -->
+  <nav class="main-top-nav">
     <div class="nav-flex">
       <div class="nav-logo">Kalyani</div>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#education">Education</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#dashboards">Dashboards</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section id="home" class="hero section">
+  <section id="home" class="hero">
     <div class="jumbotron">
       <h1>KALYANI MOHITE</h1>
-      <div class="hero-intro">
-        <p>
-          I am a curious, motivated and passionate Computer Science graduate from George Mason University with a passion for making sense of data and building meaningful solutions.
-          I have always been drawn to solving real-world problems, whether it's through analyzing patterns in data, creating dashboards that tell a story, or developing applications that improve everyday tasks.
-        </p>
-        <p style="margin-top: 1rem;">
-          I enjoy working at the intersection of logic and creativity, and I am someone who thrives when I am learning something new or collaborating with others on impactful projects.
-          Outside of work, I find joy in thoughtful conversations, long walks, and exploring different ways to grow both professionally and personally.
-        </p>
+      <p>Computer Science graduate (GMU) passionate about analytics, dashboards, and building AI-powered experiences.</p>
+      <div class="social-row">
+        <a href="mailto:kmohite@gmu.edu" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/kalyanimohite26/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/TheKalyaniMohite" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- Example other sections (education/experience/projects/skills/dashboards) ... keep your original content here -->
+  <!-- Education -->
   <section id="education" class="section">
-    <h2 class="section-title">Education</h2>
-    <!-- (Keep your original boxes / details) -->
+    <h2>Education</h2>
+    <div class="card">
+      <strong>Master of Science, Computer Science</strong> — George Mason University (Aug 2023 – May 2025) — GPA 3.9
+      <div>Coursework: Machine Learning, Generative AI, Data Mining, Advanced Algorithm Analysis, Software Development</div>
+    </div>
+    <div class="card">
+      <strong>Bachelor of Engineering, Computer Science & Engineering</strong> — University of Pune (Aug 2018 – Jul 2022) — GPA 3.5
+    </div>
   </section>
 
-  <section id="experience" class="section">
-    <h2 class="section-title">Experience</h2>
-  </section>
-
+  <!-- Projects -->
   <section id="projects" class="section">
-    <h2 class="section-title">Projects</h2>
+    <h2>Projects</h2>
+    <div class="card">
+      <strong>AI-Powered Resume Analyzer & Job Matcher</strong> — Flask on Google Cloud + spaCy, TF-IDF, cosine similarity; near real-time matching; -70% manual effort.
+    </div>
+    <div class="card">
+      <strong>Predictive Maintenance Dashboard</strong> — Python ETL → BigQuery; XGBoost (92% precision); AWS Lambda alerts; Power BI visuals.
+    </div>
+    <div class="card">
+      <strong>Smart Door Chat</strong> — Raspberry Pi 4 + YOLOv5n (sub-100ms CV); MQTT + Firebase; won GMU Hackathon 1st place.
+    </div>
+    <div class="card">
+      <strong>Market Basket Analysis</strong> — Instacart dataset; aisle/category association rules. 
+      <a href="https://github.com/TheKalyaniMohite/Market-Basket-Analysis" target="_blank" style="color:#00e676;">GitHub</a>
+    </div>
   </section>
 
-  <section id="skills" class="section">
-    <h2 class="section-title">Skills</h2>
-  </section>
-
-  <section id="dashboards" class="section">
-    <h2 class="section-title">Dashboards</h2>
-  </section>
-
-  <!-- =========================
-       Floating AI Button + Chat
-       ========================= -->
+  <!-- Floating Button -->
   <button class="floating-ai-button" id="floatingAiButton" title="Ask AI">
     <i class="fas fa-robot"></i>
   </button>
 
-  <div class="ai-widget" id="aiWidget" role="dialog" aria-label="AI Assistant">
-    <div class="ai-header">
+  <!-- Chat-Style AI Widget -->
+  <div class="ai-widget" id="aiWidget">
+    <div class="ai-widget-header">
       <span>Ask AI Assistant</span>
-      <button class="ai-close" id="aiWidgetClose" aria-label="Close">×</button>
+      <button class="ai-widget-close" id="aiWidgetClose">&times;</button>
     </div>
+    <div class="ai-chat" id="aiChat"></div>
 
-    <!-- Chat messages -->
-    <div class="ai-chat" id="aiChat">
-      <div class="ai-msg bot">
-        Hi! I’m your portfolio assistant. Ask anything about Kalyani’s profile, education, projects, skills, or experience.
+    <div class="ai-controls">
+      <div class="ai-chips">
+        <span class="ai-chip" data-question="Summarize Kalyani’s profile in 2 lines.">Profile summary</span>
+        <span class="ai-chip" data-question="What is Kalyani’s education?">Education</span>
+        <span class="ai-chip" data-question="Which project should Kalyani highlight for a Data Analyst role and why?">Best project?</span>
       </div>
-    </div>
 
-    <!-- Suggestion chips -->
-    <div class="ai-suggestions">
-      <span class="ai-chip" data-question="Summarize Kalyani's profile in 2 lines.">Profile summary</span>
-      <span class="ai-chip" data-question="What is Kalyani’s best project for a Data Analyst role?">Best project?</span>
-      <span class="ai-chip" data-question="Write a one–line LinkedIn headline highlighting Kalyani’s SQL + Power BI strengths.">LinkedIn headline</span>
-      <span class="ai-chip" data-question="What are Kalyani’s top skills? Keep it concise.">Skills highlight</span>
-    </div>
+      <div class="ai-input-wrap">
+        <!-- Suggestions dropdown -->
+        <div class="ai-suggestions" id="aiSuggestions"></div>
 
-    <!-- Input row -->
-    <div class="ai-input-row">
-      <textarea id="aiTextarea" class="ai-textarea" placeholder="Type a question… (Enter to send, Shift+Enter for new line)"></textarea>
-      <button class="ai-send" id="aiSendBtn" title="Send">
-        ➤
-      </button>
+        <div class="ai-input-row">
+          <textarea id="aiTextarea" class="ai-textarea"
+            placeholder="Ask anything about Kalyani’s profile, skills, projects…" rows="1"></textarea>
+          <button class="ai-send-btn" id="aiSendBtn" title="Send">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <!-- Portfolio CONTEXT (read by widget and sent to API) -->
+  <script id="portfolio-context" type="application/json">
+  {
+    "owner": "Kalyani Mohite",
+    "headline": "Data Analyst | SQL, Python, Power BI, Tableau | GMU MS CS",
+    "education": [
+      {
+        "degree": "Master of Science",
+        "major": "Computer Science",
+        "school": "George Mason University",
+        "from": "August 2023",
+        "to": "May 2025",
+        "gpa": "3.9",
+        "coursework": ["Machine Learning", "Generative AI", "Data Mining", "Advanced Algorithm Analysis", "Software Development"]
+      },
+      {
+        "degree": "Bachelor of Engineering",
+        "major": "Computer Science and Engineering",
+        "school": "University of Pune",
+        "from": "August 2018",
+        "to": "July 2022",
+        "gpa": "3.5"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Data Analyst",
+        "company": "Fortune Services",
+        "location": "Nashik, India",
+        "from": "August 2022",
+        "to": "August 2023",
+        "highlights": [
+          "Data integration on AWS S3, Redshift, dbt for 1 TB of data; enabled predictive analytics pipelines improving campaign ROI by 20%",
+          "Built Python ETL pipelines & optimized SQL for aggregation; +30% throughput, -40% manual reconciliation",
+          "Supported RF/LogReg churn models (85%+ accuracy) to reduce attrition"
+        ]
+      },
+      {
+        "title": "Data & Marketing Assistant",
+        "company": "Early Identification Program (GMU)",
+        "location": "Fairfax, VA",
+        "from": "April 2024",
+        "to": "May 2025",
+        "highlights": [
+          "SQL-based migrations + ETL (Redshift/PostgreSQL), +25% data accuracy, -40% pipeline runtime",
+          "Power BI/Tableau dashboards with drilldowns + refresh; -30% report prep time",
+          "Documentation in Confluence/GitHub supporting 200+ quarterly decisions"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "AI-Powered Resume Analyzer & Job Matcher",
+        "summary": "Flask on Google Cloud (Cloud Functions, BigQuery, Cloud Storage) + spaCy, TF-IDF, cosine similarity; sub-500ms matching",
+        "impact": "Automated matching, -70% manual work"
+      },
+      {
+        "title": "Predictive Maintenance Dashboard",
+        "summary": "Python ETL -> BigQuery; BI visuals; XGBoost on SageMaker with 92% precision; AWS Lambda alerts"
+      },
+      {
+        "title": "Smart Door Chat",
+        "summary": "Raspberry Pi 4, Dart & YOLOv5n, sub-100ms CV; MQTT + Firebase; dashboards; won 1st at GMU Hackathon"
+      },
+      {
+        "title": "Market Basket Analysis",
+        "summary": "Instacart dataset; association rules at aisle/category level",
+        "github": "https://github.com/TheKalyaniMohite/Market-Basket-Analysis"
+      }
+    ],
+    "skills": {
+      "programming": ["Python", "SQL", "R"],
+      "ml_ai": ["TensorFlow", "XGBoost", "Edge AI"],
+      "cloud": ["AWS", "Google Cloud", "Firebase"],
+      "viz": ["Power BI", "Tableau"]
+    }
+  }
+  </script>
 
   <script>
-    // =============== Widget elements
-    const floatingBtn   = document.getElementById('floatingAiButton');
-    const widget        = document.getElementById('aiWidget');
-    const closeBtn      = document.getElementById('aiWidgetClose');
-    const chatEl        = document.getElementById('aiChat');
-    const textarea      = document.getElementById('aiTextarea');
-    const sendBtn       = document.getElementById('aiSendBtn');
-    const chips         = document.querySelectorAll('.ai-chip');
+    const floatingBtn = document.getElementById('floatingAiButton');
+    const widget      = document.getElementById('aiWidget');
+    const closeBtn    = document.getElementById('aiWidgetClose');
+    const chatEl      = document.getElementById('aiChat');
+    const textarea    = document.getElementById('aiTextarea');
+    const sendBtn     = document.getElementById('aiSendBtn');
+    const chips       = document.querySelectorAll('.ai-chip');
 
-    function openWidget() {
-      widget.classList.add('active');
-      setTimeout(() => textarea.focus(), 100);
-    }
-    function closeWidget() {
-      widget.classList.remove('active');
-    }
-    floatingBtn.addEventListener('click', openWidget);
-    closeBtn.addEventListener('click', closeWidget);
+    const sugBox      = document.getElementById('aiSuggestions');
+    const suggestions = [
+      "Summarize Kalyani’s profile in 2 lines.",
+      "What is Kalyani’s education?",
+      "What skills does Kalyani have in SQL and Power BI?",
+      "Which project is best to highlight for a Data Analyst role and why?",
+      "Write a one-sentence LinkedIn headline for Kalyani.",
+      "Summarize Kalyani’s experience at Fortune Services.",
+      "List Kalyani’s top technical skills.",
+      "What are Kalyani’s strengths for a data role?"
+    ];
+    let activeSugIndex = -1;
 
-    // Auto-resize textarea
-    function autoResize() {
-      textarea.style.height = 'auto';
-      const newH = Math.min(textarea.scrollHeight, 120);
-      textarea.style.height = newH + 'px';
+    const chatHistory = [
+      { role: 'assistant', content: "Hi! I’m your portfolio assistant. Ask anything about Kalyani’s profile, education, projects, skills, or experience." }
+    ];
+
+    function getContext() {
+      try {
+        const raw = document.getElementById('portfolio-context')?.textContent || "{}";
+        return JSON.parse(raw);
+      } catch {
+        return {};
+      }
     }
-    textarea.addEventListener('input', autoResize);
 
     function appendMessage(text, who = 'bot') {
       const div = document.createElement('div');
-      div.className = `ai-msg ${who}`;
+      div.className = 'ai-msg ' + (who === 'user' ? 'user' : 'bot');
       div.textContent = text;
       chatEl.appendChild(div);
       chatEl.scrollTop = chatEl.scrollHeight;
@@ -334,83 +408,151 @@
     function appendTyping() {
       const wrap = document.createElement('div');
       wrap.className = 'ai-msg bot';
-      const dot = document.createElement('span');
-      dot.className = 'ai-typing';
-      wrap.appendChild(dot);
+      const dotWrap = document.createElement('div');
+      dotWrap.className = 'ai-typing';
+      const dotMid = document.createElement('span');
+      dotWrap.appendChild(dotMid);
+      wrap.appendChild(dotWrap);
       chatEl.appendChild(wrap);
       chatEl.scrollTop = chatEl.scrollHeight;
-      return wrap; // so we can remove later
+      return wrap;
     }
 
-    async function sendQuestion(text) {
-      if (!text || !text.trim()) return;
+    // Initial render
+    chatEl.innerHTML = '';
+    chatHistory.forEach(m => appendMessage(m.content, m.role === 'user' ? 'user' : 'bot'));
 
-      // show user bubble
-      appendMessage(text.trim(), 'user');
+    function openWidget() { widget.classList.add('active'); setTimeout(() => textarea.focus(), 150); }
+    function closeWidget() { widget.classList.remove('active'); }
 
-      // typing bubble
+    floatingBtn.addEventListener('click', openWidget);
+    closeBtn.addEventListener('click', closeWidget);
+
+    // auto-resize
+    function autoResize() {
+      textarea.style.height = 'auto';
+      const h = Math.min(textarea.scrollHeight, 120);
+      textarea.style.height = h + 'px';
+    }
+    textarea.addEventListener('input', () => { autoResize(); updateSuggestions(); });
+
+    // Suggestions logic
+    function updateSuggestions() {
+      const val = textarea.value.toLowerCase().trim();
+      let filtered = [];
+      if (val.length > 0) {
+        filtered = suggestions.filter(s => s.toLowerCase().includes(val));
+      } else {
+        // show top 4 default
+        filtered = suggestions.slice(0, 4);
+      }
+      renderSuggestions(filtered);
+    }
+
+    function renderSuggestions(list) {
+      sugBox.innerHTML = '';
+      activeSugIndex = -1;
+      if (!list || list.length === 0) {
+        sugBox.classList.remove('active');
+        return;
+      }
+      list.forEach((s, idx) => {
+        const item = document.createElement('div');
+        item.className = 'ai-suggestion-item';
+        item.textContent = s;
+        item.addEventListener('click', () => {
+          textarea.value = s;
+          autoResize();
+          sugBox.classList.remove('active');
+          sendNow();
+        });
+        sugBox.appendChild(item);
+      });
+      sugBox.classList.add('active');
+    }
+
+    function moveSuggestion(delta) {
+      const items = Array.from(sugBox.querySelectorAll('.ai-suggestion-item'));
+      if (items.length === 0) return;
+      activeSugIndex = (activeSugIndex + delta + items.length) % items.length;
+      items.forEach((el, i) => el.classList.toggle('active', i === activeSugIndex));
+    }
+
+    // Key handling: Enter sends, Shift+Enter newline, Up/Down navigate suggestions
+    textarea.addEventListener('keydown', (e) => {
+      const items = sugBox.classList.contains('active')
+        ? Array.from(sugBox.querySelectorAll('.ai-suggestion-item')) : [];
+
+      if (e.key === 'ArrowDown' && items.length) {
+        e.preventDefault();
+        moveSuggestion(1);
+      } else if (e.key === 'ArrowUp' && items.length) {
+        e.preventDefault();
+        moveSuggestion(-1);
+      } else if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        // If suggestion highlighted, pick it
+        if (items.length && activeSugIndex >= 0) {
+          textarea.value = items[activeSugIndex].textContent;
+          autoResize();
+          sugBox.classList.remove('active');
+          sendNow();
+        } else {
+          sendNow();
+        }
+      }
+    });
+
+    function sendNow() {
+      const text = textarea.value.trim();
+      if (!text) return;
+      textarea.value = '';
+      autoResize();
+      sugBox.classList.remove('active');
+      sendQuestion(text);
+    }
+
+    sendBtn.addEventListener('click', sendNow);
+
+    async function sendQuestion(q) {
+      appendMessage(q, 'user');
+      chatHistory.push({ role: 'user', content: q });
+
       const typingNode = appendTyping();
 
       try {
         const res = await fetch('/api/ask', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question: text.trim() })
+          body: JSON.stringify({
+            messages: chatHistory,
+            context: getContext()
+          })
         });
-        const data = await res.json();
 
-        // remove typing
+        const data = await res.json();
         typingNode.remove();
 
         if (!res.ok) {
-          appendMessage('Error: ' + (data?.error || 'Request failed'), 'bot');
+          const errText = 'Error: ' + (data?.error || 'Request failed');
+          appendMessage(errText, 'bot');
+          chatHistory.push({ role: 'assistant', content: errText });
           return;
         }
-        appendMessage(data?.answer || '(No answer)', 'bot');
+
+        const answer = data?.answer || '(No answer)';
+        appendMessage(answer, 'bot');
+        chatHistory.push({ role: 'assistant', content: answer });
       } catch (err) {
         typingNode.remove();
-        appendMessage('Error: ' + err.message, 'bot');
+        const errText = 'Error: ' + err.message;
+        appendMessage(errText, 'bot');
+        chatHistory.push({ role: 'assistant', content: errText });
       }
     }
-
-    // Send on Enter (Shift+Enter = newline)
-    textarea.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        const text = textarea.value;
-        textarea.value = '';
-        autoResize();
-        sendQuestion(text);
-      }
-    });
-
-    // Send on click
-    sendBtn.addEventListener('click', () => {
-      const text = textarea.value;
-      textarea.value = '';
-      autoResize();
-      sendQuestion(text);
-    });
-
-    // Chips
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        const q = chip.getAttribute('data-question');
-        sendQuestion(q);
-      });
-    });
-
-    // Smooth scroll for nav links
-    document.querySelectorAll('.main-top-nav a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior:'smooth' });
-        }
-      });
-    });
   </script>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </body>
 </html>

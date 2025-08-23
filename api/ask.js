@@ -1,48 +1,4 @@
 // File: api/ask.js  (Vercel Serverless Function - Node runtime)
-import { promises as fs } from "fs";
-
-// Load profile context once when the function is initialized
-let PROFILE_CONTEXT = "";
-
-async function loadProfile() {
-  try {
-    // Read from the deployed file under `public/`
-    const raw = await fs.readFile(new URL("../public/profile.json", import.meta.url), "utf-8");
-    const data = JSON.parse(raw);
-
-    // Turn JSON into a compact text block the model can use
-    const education = (data.education || [])
-      .map(e => `${e.degree} at ${e.school} (${e.dates})${e.gpa ? `, GPA ${e.gpa}` : ""}${e.coursework ? `. Coursework: ${e.coursework.join(", ")}` : ""}`)
-      .join(" | ");
-
-    const experience = (data.experience || [])
-      .map(x => `${x.title} at ${x.company} (${x.dates}) — ${x.highlights?.join("; ")}`)
-      .join(" | ");
-
-    const projects = (data.projects || [])
-      .map(p => `${p.title}${p.highlights ? ` — ${p.highlights.join("; ")}` : ""}${p.link ? ` (Link: ${p.link})` : ""}`)
-      .join(" | ");
-
-    const skills = (data.skills || []).join(", ");
-
-    PROFILE_CONTEXT = [
-      `Name: ${data.name}`,
-      `Headline: ${data.headline}`,
-      `Summary: ${data.summary}`,
-      `Education: ${education}`,
-      `Experience: ${experience}`,
-      `Projects: ${projects}`,
-      `Skills: ${skills}`
-    ].join("\n");
-
-    console.log("Profile context loaded.");
-  } catch (e) {
-    console.error("Failed to load profile.json:", e);
-    PROFILE_CONTEXT = "";
-  }
-}
-
-await loadProfile();
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -50,36 +6,64 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { question } = req.body || {};
-    if (!question) {
-      return res.status(400).json({ error: "No question provided" });
+    // Parse body (supports vercel req.body or raw stream fallback)
+    const body =
+      req.body ||
+      (await new Promise((resolve) => {
+        let data = "";
+        req.on("data", (chunk) => (data += chunk));
+        req.on("end", () => {
+          try {
+            resolve(JSON.parse(data || "{}"));
+          } catch {
+            resolve({});
+          }
+        });
+      }));
+
+    let { messages, context, question } = body || {};
+
+    // Backward compatibility: if only "question" is sent, build messages
+    if (!messages && typeof question === "string" && question.trim()) {
+      messages = [{ role: "user", content: question.trim() }];
     }
 
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return res.status(400).json({ error: "No messages provided" });
+    }
+
+    // Prepare system prompt using context
+    const ctxText = context ? JSON.stringify(context, null, 2) : "{}";
+
+    const systemPrompt = `
+You are "Kalyani's Portfolio Assistant". Answer like a helpful, professional AI assistant.
+
+Use the CONTEXT to answer questions about Kalyani (education, experience, projects, skills).
+If a detail is not in the context, say politely: "I don't have that detail in the portfolio context."
+
+Keep answers concise, correct, and helpful. Prefer bullet points for lists.
+
+CONTEXT (JSON):
+${ctxText}
+`.trim();
+
+    // OpenAI client
     const OpenAI = (await import("openai")).default;
-    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
-    const messages = [
-      {
-        role: "system",
-        content:
-          "You are an AI assistant embedded in Kalyani Mohite’s portfolio. " +
-          "Use the profile context to answer any questions about Kalyani’s education, experience, projects, and skills. " +
-          "If the information is not in the context, say you don’t have that info. Be concise, friendly, and accurate."
-      },
-      {
-        role: "system",
-        content: `PROFILE CONTEXT:\n${PROFILE_CONTEXT}`
-      },
-      { role: "user", content: question }
-    ];
-
-    const response = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages,
-      temperature: 0.3
+    const client = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
     });
 
-    const answer = response.choices?.[0]?.message?.content || "(No answer)";
+    const completion = await client.chat.completions.create({
+      model: "gpt-4o-mini",
+      temperature: 0.2,
+      messages: [
+        { role: "system", content: systemPrompt },
+        ...messages,
+      ],
+    });
+
+    const answer =
+      completion?.choices?.[0]?.message?.content?.trim() || "(No answer)";
     return res.status(200).json({ answer });
   } catch (err) {
     console.error("API error:", err);
