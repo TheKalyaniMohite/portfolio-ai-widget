@@ -7,3 +7,8 @@ Add-Content .gitignore ".env"
 Add-Content .gitignore ".env.local"
 Add-Content .gitignore ".vercel"
 Add-Content .gitignore ".vercel.bak"
+
+# env files
+.env
+.env.*
+!.env.example

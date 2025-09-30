@@ -2,831 +2,1969 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>Kalyani Mohite Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalyani Mohite · Data Analyst &amp; AI Enthusiast</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
 
   <style>
     :root {
-      --bg: #1b1f2a;
-      --bg2: #202532;
-      --text: #f5f7fb;
-      --muted: #c9ced8;
-      --accent: #00e676;
-      --accent2: #00b8d4;
-      --black: #0f1116;
-      --card: rgba(255,255,255,0.06);
-      --card-border: rgba(255,255,255,0.12);
-      --shadow: rgba(0,0,0,0.5);
+      --bg-950: #030617;
+      --bg-900: #0f172a;
+      --bg-800: #111c33;
+      --bg-700: #1e293b;
+      --surface-900: rgba(15, 23, 42, 0.92);
+      --surface-800: rgba(30, 41, 59, 0.8);
+      --surface-700: rgba(30, 41, 59, 0.65);
+      --border-soft: rgba(148, 163, 184, 0.18);
+      --text-100: #f8fafc;
+      --text-200: #e2e8f0;
+      --text-400: #94a3b8;
+      --accent-400: #22d3ee;
+      --accent-500: #38f8c8;
+      --accent-600: #22d3ee;
+      --accent-700: #a855f7;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --shadow-soft: 0 22px 44px rgba(2, 6, 23, 0.25);
+      --shadow-md: 0 18px 38px rgba(15, 23, 42, 0.32);
+      --shadow-lg: 0 26px 52px rgba(15, 23, 42, 0.45);
+      --font-display: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
+      --font-body: "Inter", system-ui, -apple-system, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-    html, body {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 55%),
+                  radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.12), transparent 60%),
+                  var(--bg-950);
+      color: var(--text-200);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ul {
       margin: 0;
       padding: 0;
-      color: var(--text);
-      background: linear-gradient(180deg, #1b1f2a, #202532 40%, #1b1f2a);
-      font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      list-style: none;
     }
 
-    body { padding-top: 72px; }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* Top nav */
-    .main-top-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: 72px;
-      display: flex; align-items: center;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      z-index: 1000;
-      box-shadow: 0 4px 20px var(--shadow);
+    button, textarea {
+      font-family: inherit;
     }
-    .nav-flex {
-      width: 100%;
-      max-width: 1200px;
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 800;
+      background: rgba(4, 11, 27, 0.85);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      backdrop-filter: blur(22px);
+    }
+
+    .site-nav {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 18px;
-      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem clamp(1.2rem, 4vw, 2.4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
-    .nav-left {
-      display: flex; align-items: center; gap: 12px;
+
+    .site-nav .brand {
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 1.05rem;
+      color: var(--text-100);
+      text-transform: uppercase;
     }
-    .nav-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.15);
-      object-fit: cover;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+
+    .site-nav ul {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 1.6rem);
     }
-    .nav-name {
-      font-weight: 700;
-      letter-spacing: 0.3px;
+
+    .site-nav li {
+      position: relative;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      color: var(--text-400);
+      transition: color 0.25s ease;
     }
-    .main-top-nav ul {
-      display: flex; gap: 16px; list-style: none;
-      margin: 0; padding: 0;
+
+    .site-nav li::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.55rem;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent-500), var(--accent-700));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
     }
-    .main-top-nav li {
-      padding: 6px 12px; border-radius: 10px;
-      color: rgba(255,255,255,0.85);
-      transition: all 0.2s ease;
+
+    .site-nav li:hover,
+    .site-nav li.active {
+      color: var(--text-100);
+    }
+
+    .site-nav li:hover::after,
+    .site-nav li.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: rgba(148, 163, 184, 0.12);
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      color: var(--text-200);
       cursor: pointer;
+      transition: background 0.25s ease;
     }
-    .main-top-nav li:hover, .main-top-nav li.active {
-      background: rgba(255,255,255,0.08);
-      color: #fff;
+
+    .nav-toggle:hover {
+      background: rgba(148, 163, 184, 0.2);
+    }
+
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.6);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 700;
+    }
+
+    .nav-overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .section {
+      padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+    }
+
+    .section .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1.4rem, 4vw, 2.8rem);
+    }
+
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .section-heading span {
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-500);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      color: var(--text-100);
+    }
+
+    .section-heading p {
+      max-width: 640px;
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--text-400);
+      line-height: 1.65;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.78rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn span {
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--accent-500), #38bdf8);
+      color: #02111f;
+      box-shadow: 0 18px 32px rgba(34, 211, 238, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 36px rgba(34, 211, 238, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--text-100);
+      border-color: rgba(148, 163, 184, 0.2);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(148, 163, 184, 0.35);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+    }
+
+    .hero .inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+      align-items: center;
+      gap: clamp(1.8rem, 5vw, 3.5rem);
+    }
+
+    .hero-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .hero-intro h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6.5vw, 4rem);
+      line-height: 1.1;
+      color: var(--text-100);
+    }
+
+    .hero-intro h1 span {
+      background: linear-gradient(120deg, var(--accent-500), var(--accent-700));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-lede {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-200);
+      margin: 0;
+      max-width: 640px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--text-400);
+      font-size: 0.9rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      gap: 0.45rem;
+      align-items: center;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(15, 23, 42, 0.65);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--accent-500);
+      border: 1px solid rgba(34, 211, 238, 0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      background: rgba(34, 211, 238, 0.18);
+      box-shadow: 0 14px 24px rgba(34, 211, 238, 0.25);
+    }
+
+    .hero-media {
+      position: relative;
+      justify-self: center;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: -14% -24% 50% -10%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.45), transparent 62%);
+      filter: blur(10px);
+      z-index: -2;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 18% -10% -15% -20%;
+      background: radial-gradient(circle, rgba(56, 248, 200, 0.32), transparent 65%);
+      z-index: -1;
+    }
+
+    .portrait-card {
+      background: var(--surface-800);
+      padding: 1.4rem;
+      border-radius: calc(var(--radius-lg) + 6px);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      box-shadow: var(--shadow-md);
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .portrait-card img {
+      border-radius: calc(var(--radius-lg) - 6px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .portrait-footer {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-400);
+      letter-spacing: 0.08em;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.4rem;
+      border-left: 1px solid rgba(56, 189, 248, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.4rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.95rem;
+      top: 0.35rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid rgba(56, 189, 248, 0.8);
+      background: rgba(15, 23, 42, 1);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+    }
+
+    .timeline-item .frosted-card {
+      padding: 1.55rem 1.75rem;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-family: var(--font-display);
+      color: var(--text-100);
+    }
+
+    .timeline-item h4 {
+      margin: 0.35rem 0;
+      color: var(--accent-600);
+      font-weight: 500;
+    }
+
+    .timeline-item .meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--text-400);
+      font-size: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .timeline-item ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--text-200);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .timeline-item ul li + li {
+      margin-top: 0.5rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: clamp(1.4rem, 3vw, 2rem);
+    }
+
+    .frosted-card {
+      position: relative;
+      background: var(--surface-900);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.4rem, 3vw, 2rem);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
+    }
+
+    .frosted-card::before {
+      content: "";
+      position: absolute;
+      inset: -20% -40% 60% 60%;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.25), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .frosted-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(34, 211, 238, 0.35);
+    }
+
+    .frosted-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--text-100);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-subtitle {
+      font-weight: 500;
+      color: var(--accent-600);
+      margin-bottom: 0.9rem;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-400);
+      margin-bottom: 1rem;
+    }
+
+    .card-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card-body {
+      color: var(--text-200);
+      line-height: 1.7;
+      font-size: 0.97rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .tag {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-500);
+      background: rgba(34, 211, 238, 0.12);
+      border: 1px solid rgba(34, 211, 238, 0.22);
+    }
+
+    .b {
+      color: var(--accent-500);
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .project-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-weight: 500;
+      color: var(--accent-600);
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .skill-card {
+      padding: 1.4rem 1.6rem;
+      border-radius: var(--radius-md);
+      background: var(--surface-800);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 211, 238, 0.28);
+    }
+
+    .skill-card h4 {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text-100);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .skill-card span {
+      font-size: 0.88rem;
+      color: var(--text-400);
+    }
+
+    .skill-progress {
+      margin-top: 0.85rem;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.16);
+      overflow: hidden;
+    }
+
+    .skill-progress span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(120deg, var(--accent-500), var(--accent-700));
+      width: 0;
+      transition: width 1.4s ease;
+    }
+
+    .skill-card.show .skill-progress span {
+      width: var(--level);
+    }
+
+    .dashboard-card {
+      background: var(--surface-900);
+      padding: clamp(1.6rem, 3vw, 2.2rem);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      box-shadow: var(--shadow-soft);
+      max-width: 850px;
+    }
+
+    .dashboard-card p {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--text-200);
+    }
+
+    .dashboard-card .btn-row {
+      margin-top: 0.6rem;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: clamp(1.4rem, 3vw, 2.4rem);
+    }
+
+    .dashboard-cta {
+      justify-content: center;
+      margin-bottom: clamp(1.4rem, 3vw, 2rem);
+    }
+
+    .dashboard-card.dashboard-embed-card {
+      max-width: none;
+    }
+
+    .dashboard-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .dashboard-card-header h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      color: var(--text-100);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    }
+
+    .dashboard-subtitle {
+      margin-top: 0.2rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(148, 163, 184, 0.7);
+    }
+
+    .dashboard-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.12);
+      color: var(--accent-500);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .dashboard-link:hover {
+      background: rgba(34, 211, 238, 0.2);
       transform: translateY(-1px);
     }
 
-    /* Hero */
-    .section { padding: 60px 16px; }
-    .hero {
-      min-height: 78vh;
-      display: flex; align-items: center; justify-content: center;
-      padding-top: 40px;
+    .dashboard-thumb {
+      position: relative;
+      display: block;
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
     }
-    .jumbotron {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      width: min(900px, 92%);
-      padding: 36px 28px;
-      box-shadow: 0 10px 36px rgba(0,0,0,0.35);
-      text-align: center;
+
+    .dashboard-thumb img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
     }
-    .hero-title {
-      margin: 0 0 14px;
-      font-size: clamp(26px, 5vw, 38px);
-      font-weight: 800;
-      letter-spacing: 1px;
+
+    .dashboard-thumb:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.55);
+    }
+
+    .dashboard-thumb-cta {
+      position: absolute;
+      left: 50%;
+      bottom: clamp(0.6rem, 2vw, 1.2rem);
+      transform: translateX(-50%);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: rgba(3, 10, 22, 0.82);
+      color: var(--text-100);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      background: linear-gradient(45deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-subtitle {
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: clamp(14px, 2.8vw, 18px);
-      line-height: 1.7;
-      max-width: 820px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      transition: background 0.2s ease, border-color 0.2s ease;
+      pointer-events: none;
     }
 
-    .social-row {
-      display: flex; gap: 18px; justify-content: center; align-items: center;
-      margin-top: 22px;
-    }
-    .social-link {
-      width: 46px; height: 46px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--accent);
-      line-height: 0;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .social-link:hover {
-      transform: translateY(-2px) scale(1.03);
-      background: rgba(0,230,118,0.15);
-    }
-    .social-link svg { width: 22px; height: 22px; }
-
-    /* Section Titles */
-    .section-title {
-      text-align: center;
-      font-weight: 800;
-      font-size: clamp(20px, 4vw, 30px);
-      margin: 10px auto 30px;
-      background: linear-gradient(45deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .dashboard-thumb:hover .dashboard-thumb-cta {
+      background: rgba(4, 16, 32, 0.92);
+      border-color: rgba(56, 189, 248, 0.4);
     }
 
-    /* Cards */
-    .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: 0 12px 34px rgba(0,0,0,0.25);
+    .dashboard-thumb-cta i {
+      color: var(--accent-500);
+      font-size: 0.85rem;
     }
 
-    /* Education */
-    .education .education-box { margin: 14px auto; width: min(900px, 92%); }
-
-    /* Experience */
-    .experience .experience-box { margin: 14px auto; width: min(900px, 92%); }
-    .experience-header { font-weight: 700; margin-bottom: 6px; }
-    .experience-meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 8px; }
-
-    /* Projects */
-    .projects .project-box { margin: 14px auto; width: min(900px, 92%); }
-    .project-title { font-weight: 700; margin-bottom: 6px; }
-    .project-details ul { margin: 0; padding-left: 18px; line-height: 1.55; }
-
-    /* Skills */
-    .skills { padding-top: 30px; }
-    .skill-groups { width: min(1000px, 92%); margin: 0 auto; display: grid; gap: 18px; }
-    .skill-group { padding: 18px; }
-    .skill-group h3 { margin: 0 0 10px; font-size: 1.15rem; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag {
-      padding: 6px 10px; border-radius: 14px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      font-size: 0.92rem; color: #e9eefb;
-    }
-
-    /* Dashboards */
-    .dashboards .dashboard-card { margin: 14px auto; width: min(900px, 92%); }
-
-    /* Back to Top */
-    .back-to-top {
-      position: fixed; right: 18px; bottom: 98px; width: 44px; height: 44px;
-      border-radius: 50%; display: none; place-items: center;
-      background: rgba(0,0,0,0.75);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff; font-size: 18px; cursor: pointer;
-      z-index: 950;
-    }
-    .back-to-top.show { display: grid; }
-    .back-to-top:hover { transform: translateY(-2px); }
-
-    /* Floating AI Button & Widget */
-    .floating-ai-button {
-      position: fixed; right: 18px; bottom: 28px; width: 56px; height: 56px;
-      border-radius: 50%; display: grid; place-items: center; cursor: pointer;
-      background: linear-gradient(45deg, var(--accent), var(--accent2));
-      border: 0; color: #111; font-size: 22px;
-      box-shadow: 0 12px 34px rgba(0,0,0,0.35);
-      z-index: 1002;
-    }
-    .floating-ai-button:hover { transform: translateY(-2px) scale(1.02); }
-
-    .ai-widget {
-      position: fixed; right: 18px; bottom: 96px; width: min(420px, 92vw);
-      max-height: 70vh; display: flex; flex-direction: column;
-      background: rgba(27,31,42,0.96);
+    .dashboard-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 8, 20, 0.78);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 14px;
-      box-shadow: 0 14px 48px rgba(0,0,0,0.45);
-      overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.98);
-      transition: all 0.18s ease-out;
-      z-index: 1001;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1rem, 4vw, 2.4rem);
+      z-index: 1200;
     }
-    .ai-widget.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-    .ai-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 12px;
-      background: rgba(255,255,255,0.07);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      font-weight: 700;
-    }
-    .ai-header .title { display: flex; align-items: center; gap: 10px; }
-    .ai-close { border: 0; background: transparent; color: #fff; font-size: 18px; cursor: pointer; }
 
-    .ai-body {
-      display: flex; flex-direction: column;
-      padding: 10px; gap: 10px; overflow-y: auto; min-height: 140px;
+    .dashboard-modal.open {
+      display: flex;
     }
-    .ai-typing { font-size: 0.9rem; color: var(--muted); padding-left: 6px; display: none; }
-    .ai-typing.show { display: block; }
 
-    /* Chat bubbles */
-    .chat {
-      display: flex; flex-direction: column; gap: 8px;
+    .dashboard-modal-dialog {
+      position: relative;
+      width: min(1080px, 100%);
+      max-height: calc(100vh - clamp(2rem, 6vw, 4rem));
+      background: rgba(10, 20, 36, 0.95);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      box-shadow: 0 30px 80px rgba(2, 6, 23, 0.55);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
-    .bubble {
-      max-width: 85%;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      line-height: 1.45;
+
+    .dashboard-modal-close {
+      position: absolute;
+      top: 0.9rem;
+      right: 1rem;
+      border: none;
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--text-200);
+      font-size: 1.35rem;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      z-index: 5;
+    }
+
+    .dashboard-modal-close:hover {
+      background: rgba(148, 163, 184, 0.25);
+    }
+
+    .dashboard-modal-header {
+      padding: 1.4rem clamp(1.4rem, 3vw, 2.2rem) 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .dashboard-modal-header h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      color: var(--text-100);
+      font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+    }
+
+    .dashboard-modal-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .dashboard-modal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-500);
+      background: rgba(34, 211, 238, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .dashboard-modal-link:hover {
+      background: rgba(34, 211, 238, 0.24);
+      transform: translateY(-1px);
+    }
+
+    .dashboard-modal-body {
+      flex: 1;
+      padding: 0 clamp(1.4rem, 3vw, 2.2rem) clamp(1.4rem, 3vw, 2.2rem);
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .dashboard-frame {
+      width: 100%;
+      flex: 1;
+      border: none;
+      border-radius: var(--radius-md);
+      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.15);
+      background: #01060f;
+      min-height: 60vh;
+    }
+
+    body.dashboard-modal-open {
+      overflow: hidden;
+    }
+
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-400);
+      font-size: 0.85rem;
+    }
+
+    footer .inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 clamp(1.4rem, 4vw, 2.8rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    footer small {
+      letter-spacing: 0.08em;
+    }
+
+    #chat-toggle {
+      position: fixed;
+      right: clamp(1.2rem, 4vw, 2.2rem);
+      bottom: clamp(1.8rem, 6vw, 3rem);
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      border: none;
+      cursor: pointer;
+      z-index: 950;
+      color: #02111f;
+      background: linear-gradient(135deg, var(--accent-500), #38bdf8);
+      box-shadow: 0 22px 40px rgba(34, 211, 238, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+
+    body.chat-open #chat-toggle {
+      opacity: 0;
+      transform: translateY(12px) scale(0.85);
+      pointer-events: none;
+    }
+
+    #chat-toggle:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 26px 46px rgba(34, 211, 238, 0.4);
+    }
+
+    #chat-toggle svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    .chat-widget {
+      position: fixed;
+      right: clamp(1rem, 3vw, 1.6rem);
+      bottom: clamp(1rem, 3vw, 1.6rem);
+      width: min(370px, calc(100vw - 2.4rem));
+      height: min(540px, calc(100vh - 2.4rem));
+      background: linear-gradient(160deg, rgba(10, 20, 36, 0.95) 0%, rgba(3, 9, 20, 0.92) 60%, rgba(9, 26, 43, 0.95) 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      opacity: 0;
+      transform: translateY(12px) scale(0.96);
+      pointer-events: none;
+      box-shadow: 0 34px 70px rgba(15, 23, 42, 0.6);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 940;
+      backdrop-filter: blur(24px);
+    }
+
+    .chat-widget.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.05rem 1.25rem;
+      background: rgba(34, 211, 238, 0.12);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.18);
       position: relative;
     }
-    .bubble.user {
-      background: rgba(0,184,212,0.15);
-      align-self: flex-end;
-      border-color: rgba(0,184,212,0.35);
-    }
-    .bubble.ai {
-      align-self: flex-start;
-      background: rgba(0,230,118,0.12);
-      border-color: rgba(0,230,118,0.28);
-    }
-    .bubble .ts {
-      position: absolute; bottom: -16px; right: 8px; font-size: 10px; color: var(--muted);
+
+    .chat-header::after {
+      content: "";
+      position: absolute;
+      inset: auto 1.25rem -0.4rem 1.25rem;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.6), rgba(168, 85, 247, 0.6));
+      opacity: 0.9;
+      pointer-events: none;
     }
 
-    /* Suggestions */
-    .suggestions {
-      display: grid; gap: 6px; grid-template-columns: 1fr 1fr;
-    }
-    .suggestions .chip {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 10px;
-      padding: 8px 10px; font-size: 0.9rem; cursor: pointer;
-    }
-    .suggestions .chip:hover { background: rgba(0, 230, 118, 0.15); }
-
-    .ai-footer {
-      display: grid; gap: 8px; padding: 10px; border-top: 1px solid rgba(255,255,255,0.1);
+    .chat-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
-    .input-row {
-      display: grid; grid-template-columns: 1fr auto; gap: 8px;
+    .chat-title-text {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent-600);
+      text-transform: uppercase;
+      font-size: 0.86rem;
+    }
+
+    .chat-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-400);
+      letter-spacing: 0.04em;
+    }
+
+    .chat-status .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent-500), #38bdf8);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.65);
+      position: relative;
+    }
+
+    .chat-close {
+      border: none;
+      background: transparent;
+      color: var(--text-200);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 0.25rem 0.4rem;
+      border-radius: 999px;
+      transition: background 0.2s ease;
+    }
+
+    .chat-close:hover {
+      background: rgba(148, 163, 184, 0.12);
+    }
+
+    .chat-body {
+      padding: 1rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.75rem;
+      position: relative;
+      min-height: 0;
+    }
+
+    #chat-log {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-bottom: 0.5rem;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      min-height: 0;
+    }
+
+    #chat-log::after {
+      content: "";
+      position: sticky;
+      bottom: -0.25rem;
+      left: 0;
+      right: 0;
+      height: 24px;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(8, 15, 28, 0) 0%, rgba(8, 15, 28, 0.85) 85%);
+    }
+
+    #chat-log::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #chat-log::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.35);
+      border-radius: 999px;
+    }
+
+    .msg {
+      max-width: 90%;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      line-height: 1.5;
+      font-size: 0.92rem;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.35);
+      animation: chat-pop 0.25s ease both;
+    }
+
+    .msg.user {
+      margin-left: auto;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(56, 189, 248, 0.32));
+      border: 1px solid rgba(34, 211, 238, 0.38);
+      color: var(--text-100);
+    }
+
+    .msg.ai {
+      background: rgba(148, 163, 184, 0.14);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      color: var(--text-200);
+    }
+
+    .chat-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-bottom: 0.25rem;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      flex-shrink: 0;
+    }
+
+    .chat-chip {
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      font-size: 0.82rem;
+      cursor: pointer;
+      color: var(--text-200);
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.18s ease;
+    }
+
+    .chat-chip:hover {
+      border-color: rgba(34, 211, 238, 0.3);
+      background: rgba(34, 211, 238, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 0.6rem;
       align-items: flex-end;
-    }
-    .ai-textarea {
-      width: 100%;
-      min-height: 42px; max-height: 160px;
-      padding: 10px 12px; border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.15);
-      resize: none; overflow: hidden;  /* no scrollbars */
-      background: rgba(255,255,255,0.06);
-      color: #fff; font-size: 0.95rem; line-height: 1.3;
-    }
-    .send-btn {
-      width: 44px; height: 44px; border-radius: 10px; border: 0; cursor: pointer;
-      background: linear-gradient(45deg, var(--accent), var(--accent2));
-      color: #111; font-size: 20px;
-      display: grid; place-items: center;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
     }
 
-    .sub-row {
-      display: flex; justify-content: space-between; align-items: center;
+    #chat-text {
+      flex: 1;
+      min-height: 48px;
+      max-height: 160px;
+      padding: 0.75rem 0.85rem;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      color: var(--text-200);
+      resize: none;
+      line-height: 1.5;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
     }
-    .clear-btn {
-      border: 0; background: rgba(255,255,255,0.08);
-      color: #fff; padding: 6px 10px; border-radius: 8px; cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.15);
-      font-size: 0.9rem;
+
+    #chat-text:focus {
+      outline: none;
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.14);
     }
-    .clear-btn:hover { background: rgba(255,255,255,0.12); }
+
+    #chat-send {
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--accent-500), #38bdf8);
+      color: #031626;
+      cursor: pointer;
+      min-width: 78px;
+      transition: transform 0.2s ease;
+    }
+
+    #chat-send:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #chat-send:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid rgba(148, 163, 184, 0.28);
+      border-top-color: rgba(34, 211, 238, 0.75);
+      animation: spin 0.8s linear infinite;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes chat-pop {
+      from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero .inner {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: center;
+      }
+
+      .hero-meta {
+        justify-content: center;
+      }
+
+      .btn-row {
+        justify-content: center;
+      }
+
+      .hero-media {
+        order: -1;
+      }
+
+      .portrait-card {
+        max-width: 260px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .site-nav ul {
+        position: fixed;
+        top: 72px;
+        right: clamp(1rem, 6vw, 2rem);
+        background: rgba(4, 11, 27, 0.96);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        border-radius: var(--radius-lg);
+        padding: 1.4rem;
+        flex-direction: column;
+        gap: 1rem;
+        min-width: 200px;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        box-shadow: var(--shadow-md);
+      }
+
+      .site-nav.open ul {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .nav-toggle i {
+        font-size: 1.05rem;
+      }
+    }
 
     @media (max-width: 640px) {
-      .main-top-nav ul { display: none; }
-      .jumbotron { padding: 24px 16px; }
+      .section {
+        padding: clamp(3.6rem, 10vw, 4.5rem) 0;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        padding-left: 0.8rem;
+      }
+
+      .timeline-item {
+        padding-left: 1rem;
+      }
+
+      .timeline-item::before {
+        left: -1.45rem;
+      }
+
+      #chat-toggle {
+        width: 52px;
+        height: 52px;
+        right: clamp(1.4rem, 6vw, 2.6rem);
+        bottom: clamp(2.3rem, 9vw, 3.8rem);
+      }
+
+      .chat-widget {
+        width: min(92vw, 360px);
+        height: min(520px, calc(100vh - 2.4rem));
+      }
+
+      .dashboard-modal-dialog {
+        width: 100%;
+        max-height: calc(100vh - 1.6rem);
+      }
+
+      .dashboard-modal-body {
+        padding: 0 1.1rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-intro h1 {
+        font-size: clamp(2.4rem, 10vw, 3rem);
+      }
+
+      .chat-widget {
+        width: 94vw;
+        right: 3vw;
+        bottom: 3vw;
+        height: calc(100vh - 3vw);
+      }
+
+      #chat-toggle {
+        bottom: clamp(2.6rem, 10vw, 4.2rem);
+        right: clamp(1.6rem, 7vw, 3rem);
+      }
+
+      .dashboard-frame {
+        min-height: 55vh;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
-  <nav class="main-top-nav" id="mainTopNav">
-    <div class="nav-flex">
-      <div class="nav-left">
-        <img src="final_profile.jpg" alt="Kalyani" class="nav-avatar" />
-        <div class="nav-name">Kalyani Mohite</div>
-      </div>
-      <ul>
+  <header class="site-header">
+    <nav class="site-nav" id="siteNav">
+      <a href="#home" class="brand">Kalyani Mohite</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+  <i class="fa-solid fa-bars"></i>
+        Menu
+      </button>
+      <ul id="primaryNav">
         <li><a href="#home">Home</a></li>
-        <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#dashboards">Dashboards</a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
 
-  <!-- HERO -->
-  <section id="home" class="hero section">
-    <div class="jumbotron">
-      <h1 class="hero-title">HELLO, I AM KALYANI MOHITE</h1>
-      <p class="hero-subtitle">
-        AI-Driven Data Analyst dedicated to transforming complex data into actionable insights and strategic narratives.
-      </p>
-
-      <div class="social-row">
-        <a class="social-link" href="https://www.linkedin.com/in/kalyanimohite26/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.2 0 0 2.2 0 5V19C0 21.8 2.2 24 5 24H19C21.8 24 24 21.8 24 19V5C24 2.2 21.8 0 19 0zM7.1 20.5H3.9V9.3H7.1V20.5zM5.5 7.8C4.3 7.8 3.3 6.8 3.3 5.6C3.3 4.3 4.3 3.3 5.5 3.3C6.7 3.3 7.7 4.3 7.7 5.6C7.7 6.8 6.7 7.8 5.5 7.8zM20.5 20.5H17.3V14.9C17.3 13.5 17.3 11.8 15.4 11.8C13.5 11.8 13.2 13.1 13.2 14.8V20.5H10.1V9.3H13.2V10.8H13.3C13.7 10 14.7 9.1 16.2 9.1C19.2 9.1 20.5 11 20.5 13.9V20.5Z"></path></svg>
-        </a>
-        <a class="social-link" href="mailto:kmohite@gmu.edu" title="Email" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 13L0 6V4L12 11L24 4V6L12 13ZM0 8V20H24V8L12 15L0 8Z"></path></svg>
-        </a>
-        <a class="social-link" href="https://github.com/TheKalyaniMohite" target="_blank" title="GitHub" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.8 5.4.8 11.7c0 4.9 3.2 9 7.6 10.4.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.5 2.3 1 2.9.8.1-.6.3-1 .6-1.3C8 15.7 5.8 14.8 5.8 11.3c0-1 .4-1.8 1-2.4-.1-.2-.5-1.3.1-2.6 0 0 .8-.3 2.7 1 1.6-.4 3.3-.4 4.9 0 1.9-1.3 2.7-1 2.7-1 .6 1.3.2 2.4.1 2.6.6.6 1 1.4 1 2.4 0 3.5-2.2 4.4-4.3 4.6.4.3.7.9.7 1.8v2.7c0 .3.2.7.9.6 4.4-1.4 7.6-5.5 7.6-10.4C23.2 5.4 18.3.5 12 .5z"/></svg>
-        </a>
-        <a class="social-link" href="tel:7048868432" title="Phone" aria-label="Phone">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 10.8c1.8 3.7 4.9 6.6 8.6 8.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V22c0 .6-.4 1-1 1C10.5 23 1 13.5 1 2c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1.1L6.5 10.8z"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" class="section education">
-    <h2 class="section-title">Education</h2>
-    <div class="education-box card edu-context">
-      <div class="education-header"><strong>MASTER OF SCIENCE</strong></div>
-      <div class="education-details">
-        <ul>
-          <li><strong>Degree:</strong> Master of Science in Computer Science</li>
-          <li><strong>School:</strong> George Mason University</li>
-          <li><strong>Duration:</strong> Aug 2023 – May 2025</li>
-          <li><strong>GPA:</strong> 3.9</li>
-          <li><strong>Relevant Coursework:</strong> Machine Learning, Generative AI, Data Mining, Advanced Algorithm Analysis, Software Development</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="education-box card edu-context">
-      <div class="education-header"><strong>BACHELOR OF ENGINEERING</strong></div>
-      <div class="education-details">
-        <ul>
-          <li><strong>Degree:</strong> B.E. in Computer Science and Engineering</li>
-          <li><strong>School:</strong> University of Pune</li>
-          <li><strong>Duration:</strong> Aug 2018 – July 2022</li>
-          <li><strong>GPA:</strong> 3.5</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section experience">
-    <h2 class="section-title">Experience</h2>
-
-    <div class="experience-box card exp-context">
-      <div class="experience-header">Data Analyst — Fortune Services</div>
-      <div class="experience-meta">Aug 2022 – Aug 2023 | Nashik, India</div>
-      <div class="experience-details">
-        <ul>
-          <li>Led data integration projects on AWS S3, Redshift, and dbt to migrate and model 1 TB of marketing and CRM data, enabling predictive analytics that improved campaign ROI by 20%.</li>
-          <li>Developed Python ETL pipelines and optimized SQL scripts for multi-channel data aggregation, boosting throughput by 30% and reducing manual effort by 40%.</li>
-          <li>Collaborated on Random Forest and Logistic Regression churn models achieving 85%+ accuracy, reducing customer attrition.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="experience-box card exp-context">
-      <div class="experience-header">Data & Marketing Assistant — Early Identification Program (GMU)</div>
-      <div class="experience-meta">Apr 2024 – May 2025 | Fairfax, VA</div>
-      <div class="experience-details">
-        <ul>
-          <li>Built SQL-based migration and ETL pipelines with Redshift & PostgreSQL for 500+ student engagement records, improving accuracy by 25% and cutting pipeline runtime by 40%.</li>
-          <li>Power BI/Tableau dashboards with drilldowns, auto-refresh—reduced report prep time by 30%.</li>
-          <li>Documented workflows, schemas, and insights; supported 200+ data-driven decisions per quarter.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="experience-box card exp-context">
-      <div class="experience-header">Data Analyst — Cybeorg Education Technology</div>
-      <div class="experience-meta">Jan 2023 – July 2023 | Remote</div>
-      <div class="experience-details">
-        <ul>
-          <li>Automated processing of 2,000+ feedback entries (Python/Pandas) for sentiment and visualization, boosting retention by 12%.</li>
-          <li>Ran A/B tests on recommendation algorithms; deployed enhancements via Flask with real-time monitoring.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="experience-box card exp-context">
-      <div class="experience-header">Data Analyst Trainee — Microsoft & GMU</div>
-      <div class="experience-meta">June 2024 – Aug 2024 | Remote</div>
-      <div class="experience-details">
-        <ul>
-          <li>Azure Synapse pipelines for 500GB/day telemetry; cut latency ~40%.</li>
-          <li>Power BI dashboards + custom DAX; reduced ad-hoc requests by 50%.</li>
-          <li>Basic anomaly detection (Azure ML + Python), reducing incident resolution time by 15%.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section projects">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="project-box card proj-context">
-      <div class="project-title">AI-Powered Resume Analyzer & Job Matcher</div>
-      <div class="project-details">
-        <ul>
-          <li>Flask app on Google Cloud (Cloud Functions, BigQuery, Cloud Storage) with spaCy for skill extraction, TF-IDF & cosine similarity for job matching &lt;500ms.</li>
-          <li>Automated ETL in BigQuery + Cloud Functions APIs; reduced manual matching by 70%.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="project-box card proj-context">
-      <div class="project-title">Predictive Maintenance Dashboard</div>
-      <div class="project-details">
-        <ul>
-          <li>Python ETL for IoT sensor data → BigQuery; anomaly detection + trends in Power BI.</li>
-          <li>XGBoost models on AWS SageMaker (92% precision); alerting via AWS Lambda.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="project-box card proj-context">
-      <div class="project-title">Smart Door Chat</div>
-      <div class="project-details">
-        <ul>
-          <li>Edge AI on Raspberry Pi 4 using Dart & YOLOv5n for vision; sub-100ms inference; real-time STT; 1st place at GMU Hackathon.</li>
-          <li>MQTT + Firebase Cloud Functions/Firestore; ETL logs to BI dashboards for insights.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="project-box card proj-context">
-      <div class="project-title">Market Basket Analysis</div>
-      <div class="project-details">
-        <ul>
-          <li>Association rules on Instacart dataset (aisle-level co-occurrence). Informs store layout & promos.</li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/TheKalyaniMohite/Market-Basket-Analysis" target="_blank">github.com/TheKalyaniMohite/Market-Basket-Analysis</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="section skills">
-    <h2 class="section-title">Skills</h2>
-    <div class="skill-groups">
-      <div class="skill-group card skill-context">
-        <h3>Languages</h3>
-        <div class="skill-tags">
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">R</span>
-          <span class="tag">Java</span>
+  <main>
+    <section id="home" class="section hero">
+      <div class="inner">
+        <div class="hero-intro">
+          <h1>Hello, I’m <span>Kalyani Mohite</span>.</h1>
+          <p class="hero-lede">
+            I transform complex data streams into clear stories that drive product and user decisions.
+            From predictive models to executive-ready dashboards, I thrive at the intersection of analytics,
+            automation, and storytelling.
+          </p>
+          <div class="btn-row">
+            
+          </div>
+          <div class="social-links">
+            <a class="social-link" href="https://www.linkedin.com/in/kalyanimohite26/" target="_blank" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a class="social-link" href="https://github.com/TheKalyaniMohite" target="_blank" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="social-link" href="mailto:kmohite@gmu.edu" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a class="social-link" href="tel:7048868432" aria-label="Phone">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="portrait-card">
+            <img src="final_profile.jpg" alt="Portrait of Kalyani Mohite" />
+            <div class="portrait-footer">Data Driven · Strategic · Persistent · Versatile · Innovative Developer</div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="skill-group card skill-context">
-        <h3>Tools</h3>
-        <div class="skill-tags">
-          <span class="tag">Excel</span>
-          <span class="tag">Power BI</span>
-          <span class="tag">Looker</span>
-          <span class="tag">Snowflake</span>
-          <span class="tag">Apache Airflow</span>
-          <span class="tag">Tableau</span>
-          <span class="tag">Git</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">dbt</span>
-          <span class="tag">Flask</span>
-          <span class="tag">Docker</span>
+    <section id="experience" class="section">
+      <div class="inner">
+        <div class="section-heading">
+          <span>Experience</span>
+          <h2>Impact across data, analytics, and growth</h2>
+          <p>Hands-on experience building reliable pipelines, surfacing actionable insights, and partnering with cross-functional teams to ship measurable results.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="frosted-card">
+              <h3>Data Analyst</h3>
+              <h4>Fortune Services</h4>
+              <div class="meta">
+                <span><i class="fa-regular fa-calendar"></i> Aug 2022 – Aug 2023</span>
+                <span><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+              </div>
+              <ul>
+                <li>Migrated and modeled ~1 TB of marketing and CRM data on AWS S3, Redshift, and dbt to deliver end-to-end analytics pipelines, increasing campaign ROI by ~20%. Built Python ETL workflows and optimized SQL across heterogeneous sources, improving processing speed by ~30% and reducing manual reconciliation by ~40%. Collaborated with data engineering to train and evaluate Random Forest and Logistic Regression models (>85% accuracy) that informed maintenance schedules and reduced customer attrition.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="frosted-card">
+              <h3>Data &amp; Marketing Assistant</h3>
+              <h4>Early Identification Program · George Mason University</h4>
+              <div class="meta">
+                <span><i class="fa-regular fa-calendar"></i> Apr 2024 – May 2025</span>
+                <span><i class="fa-solid fa-map-marker-alt"></i> Fairfax, VA</span>
+              </div>
+              <ul>
+                <li>Handled end-to-end pipeline for student engagement data using Amazon Redshift and PostgreSQL for loading and cleaning 500+ records, improving accuracy by 25% and cutting processing time nearly in half. Built Power BI and Tableau dashboards with filters and auto-refresh to reduce report prep time and reveal student details, engagement patterns, and campaign outcomes. Documented workflows, schema layouts, and key findings in Confluence and GitHub, delivering reports and slide decks that informed 200+ decisions each quarter.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="frosted-card">
+              <h3>People Analytics Intern</h3>
+              <h4>Auriv Learning</h4>
+              <div class="meta">
+                <span><i class="fa-regular fa-calendar"></i> Jan 2023 – Jul 2023</span>
+                <span><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+              </div>
+              <ul>
+                <li>Partnered with HR and data engineering to centralize BambooHR/Greenhouse data in Snowflake (Airflow ETL, schema design). Built recruiting, DEI, and headcount dashboards in Looker Studio and ran SQL/Python analyses. Weekly audits cut reporting discrepancies by 85%, and self-service views/guides reduced recurring Jira data tickets by 40%.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="frosted-card">
+              <h3>Data Analyst Trainee</h3>
+              <h4>Microsoft · George Mason University</h4>
+              <div class="meta">
+                <span><i class="fa-regular fa-calendar"></i> Jun 2024 – Aug 2024</span>
+                <span><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+              </div>
+              <ul>
+                <li>Built Synapse pipelines ingesting ~500 GB/day telemetry (-40% latency), delivered Power BI dashboards with custom DAX and R visuals that halved ad-hoc requests, and prototyped Azure ML + Python anomaly alerts that reduced incident resolution time by 15%.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="skill-group card skill-context">
-        <h3>Libraries</h3>
-        <div class="skill-tags">
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">TensorFlow</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">XGBoost</span>
-          <span class="tag">spaCy</span>
-          <span class="tag">SHAP</span>
+    <section id="projects" class="section">
+      <div class="inner">
+        <div class="section-heading">
+          <span>Projects</span>
+          <h2>Selected builds and analytical storytelling</h2>
+          <p>A mix of productionized tools and experimentation—each focused on solving real user problems with scalable data and AI craftsmanship.</p>
+        </div>
+        <div class="card-grid">
+          <article class="frosted-card project-card">
+            <div class="card-title">AI SQL Copilot</div>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-link"></i> <a href="https://github.com/TheKalyaniMohite/ai-sqlgen" target="_blank" rel="noopener">GitHub Repository</a></span>
+              <span><i class="fa-solid fa-link"></i> <a href="https://ai-sqlgen.streamlit.app/" target="_blank" rel="noopener">Live Demo</a></span>
+            </div>
+            <div class="card-body">
+              <p>Built an LLM-powered SQL copilot (Python, Streamlit, SQLite, OpenAI SDK, Pandas) that converts natural language into safe, single SELECT queries on a read-only CSV-backed database adding schema-aware prompting, strict SELECT-only validation, identifier sanitization, enforced LIMITs, and an error-aware self-repair loop-delivering results, quick charts, and brief insights with ~93% valid SQL after auto-repair on ~100 prompts.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">LLM</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">OpenAI SDK</span>
+            </div>
+          </article>
+          
+          <article class="frosted-card project-card">
+            <div class="card-title">Healthcare Analytics Platform</div>
+            <div class="card-meta">
+<!--              <span><i class="fa-solid fa-link"></i> <a href="https://github.com/TheKalyaniMohite/Healthcare-Readmission-Insights-Dashboard" target="_blank" rel="noopener">GitHub Repository</a></span> -->
+            </div>
+            <div class="card-body">
+              <p>Integrated 100k+ hospital admissions into Snowflake with Python/SQL, engineered KPIs, and validated accuracy via reconciliation checks. Trained a scikit-learn logistic regression model (AUC 0.82) and exposed predictions and key drivers in Tableau, cutting Excel reporting time down to ~30 minutes.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Snowflake</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">ETL</span>
+              <span class="tag">Logistic Regression</span>
+              <span class="tag">Tableau</span>
+              <span class="tag">Excel</span>
+            </div>
+          </article>
+          
+          <article class="frosted-card project-card">
+            <div class="card-title">Market Basket Analysis</div>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-store"></i> Instacart dataset</span>
+              <span><i class="fa-solid fa-link"></i> <a href="https://github.com/TheKalyaniMohite/Market-Basket-Analysis" target="_blank" rel="noopener">GitHub Repository</a></span>
+            </div>
+            <div class="card-body">
+              <p>Prepared 50k+ retail transactions with Python/SQL and mined high-lift product pairs/triplets using Apriori (mlxtend). Built a Power BI dashboard with category/season filters to visualize lift, support, and confidence, proposing bundles projected to increase cross-sell revenue.</p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Apriori Algorithm (MLXtend)</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">EDA</span>
+              <span class="tag">Association Rules</span>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="skill-group card skill-context">
-        <h3>Cloud Services</h3>
-        <div class="skill-tags">
-          <span class="tag">Snowflake</span>
-          <span class="tag">AWS (EC2, S3, Lambda, RDS, Redshift, CloudWatch, SageMaker)</span>
-          <span class="tag">GCP (BigQuery, Cloud Functions, Cloud Storage)</span>
+    <section id="education" class="section">
+      <div class="inner">
+        <div class="section-heading">
+          <span>Education</span>
+          <h2>Foundations in computer science &amp; analytics</h2>
+          <p>Grounded in rigorous coursework and applied research that bridges theory with data-driven impact.</p>
+        </div>
+        <div class="card-grid">
+          <article class="frosted-card">
+            <div class="card-title">Master of Science · Computer Science</div>
+            <div class="card-subtitle">George Mason University · 2023 – 2025</div>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-award"></i> GPA 3.9</span>
+              <span><i class="fa-solid fa-book-open"></i> ML · Generative AI · Data Mining · Algorithms</span>
+            </div>
+            <div class="card-body">
+              Built production-grade systems that blend research-backed methods with real-world data pipelines and storytelling for stakeholders.
+            </div>
+          </article>
+
+          <article class="frosted-card">
+            <div class="card-title">Bachelor of Engineering · Computer Science and Engineering</div>
+            <div class="card-subtitle">University of Pune · 2018 – 2022</div>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-award"></i> GPA 3.5</span>
+              <span><i class="fa-solid fa-lightbulb"></i> Full-stack foundations · Data structures · Big Data Analytics · Statistical Analysis · Business Intelligence and Analytics</span>
+            </div>
+            <div class="card-body">
+              Strengthened software engineering fundamentals, teamwork, and applied statistics through capstone products and hackathons.
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- DASHBOARDS -->
-  <section id="dashboards" class="section dashboards">
-    <h2 class="section-title">Dashboards</h2>
-    <div class="dashboard-card card">
-      Your dashboard content goes here. Add Power BI/Tableau links or screenshots!
-    </div>
-  </section>
-
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
-
-  <!-- Floating AI Button -->
-  <button class="floating-ai-button" id="floatingAiButton" title="Ask AI"><span>🤖</span></button>
-
-  <!-- AI Widget -->
-  <div class="ai-widget" id="aiWidget" aria-live="polite">
-    <div class="ai-header">
-      <div class="title">Kalyani’s AI Assistant</div>
-      <button class="ai-close" id="aiWidgetClose" aria-label="Close">×</button>
-    </div>
-    <div class="ai-body" id="aiBody">
-      <div class="chat" id="chat"></div>
-      <div class="ai-typing" id="typingIndicator">Kalyani’s AI is typing…</div>
-    </div>
-    <div class="ai-footer">
-      <div class="suggestions" id="suggestions">
-        <div class="chip">Summarize my profile in 2 lines for a recruiter</div>
-        <div class="chip">What is Kalyani’s education?</div>
-        <div class="chip">Which project best fits a Data Analyst role?</div>
-        <div class="chip">Write a LinkedIn headline for me</div>
-        <div class="chip">What are my top skills? (SQL/Power BI/Python)</div>
-        <div class="chip">What roles am I best fit for?</div>
+    <section id="skills" class="section">
+      <div class="inner">
+        <div class="section-heading">
+          <span>Skills</span>
+          <h2>Toolbox for shipping data &amp; AI outcomes</h2>
+          <p>Comfortable moving between analytics, automation, and cloud-first delivery to accelerate decision-making.</p>
+        </div>
+        <div class="skills-grid" id="skillsGrid">
+          <div class="skill-card" style="--level: 95%">
+            <h4><i class="fa-brands fa-python"></i> Python</h4>
+            <span>ETL, automation, feature engineering, orchestration</span>
+            <div class="skill-progress"><span></span></div>
+          </div>
+          <div class="skill-card" style="--level: 92%">
+            <h4><i class="fa-solid fa-database"></i> SQL &amp; dbt</h4>
+            <span>Warehouse modelling, query optimization, testing</span>
+            <div class="skill-progress"><span></span></div>
+          </div>
+          <div class="skill-card" style="--level: 88%">
+            <h4><i class="fa-solid fa-brain"></i> Machine Learning</h4>
+            <span>Scikit-learn, TensorFlow, Azure ML, experimentation</span>
+            <div class="skill-progress"><span></span></div>
+          </div>
+          <div class="skill-card" style="--level: 86%">
+            <h4><i class="fa-solid fa-chart-simple"></i> BI &amp; Storytelling</h4>
+            <span>Power BI, Tableau, executive-ready dashboards</span>
+            <div class="skill-progress"><span></span></div>
+          </div>
+          <div class="skill-card" style="--level: 84%">
+            <h4><i class="fa-solid fa-cloud"></i> Cloud &amp; DevOps</h4>
+            <span>AWS, GCP, Azure Synapse, Docker, CI/CD</span>
+            <div class="skill-progress"><span></span></div>
+          </div>
+          <div class="skill-card" style="--level: 80%">
+            <h4><i class="fa-solid fa-comments"></i> Stakeholder Enablement</h4>
+            <span>Roadmapping, workshop facilitation, data storytelling</span>
+            <div class="skill-progress"><span></span></div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="input-row">
-        <textarea class="ai-textarea" id="aiTextarea" placeholder="Ask about my experience, projects, education, or skills..." rows="1"></textarea>
-        <button class="send-btn" id="sendBtn" title="Send">↗</button>
+    <section id="dashboards" class="section">
+      <div class="inner">
+        <div class="section-heading">
+          <span>Dashboards</span>
+          <h2>Interactive storytelling at a glance</h2>
+          <p>Curated dashboards distilling complex datasets into executive-ready narratives. Drop in your Tableau, Power BI, or Looker embeds here.</p>
+        </div>
+        <div class="btn-row dashboard-cta">
+          <a class="btn btn-secondary" href="mailto:kmohite@gmu.edu?subject=Dashboard%20Request">
+            Request a walkthrough
+            <i class="fa-solid fa-calendar-check"></i>
+          </a>
+        </div>
+        <div class="dashboard-grid">
+          <article class="dashboard-card dashboard-embed-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Customer Churn Insights Dashboard</h3>
+                <div class="dashboard-subtitle">
+                    <span><i class="fa-solid fa-database"></i> Telco Customer Churn (Kaggle)</span>
+                </div>
+              </div>
+              <a class="dashboard-link" href="https://public.tableau.com/views/Book2_17578109470860/CustomerChurnInsightsDashboard?:language=en-US&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">
+                View full dashboard
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+            <p class="dashboard-description">Analyzes 7,000+ telecom customer records to surface churn drivers, spotlight high-risk cohorts, and prioritize retention plays with KPI scorecards and cohort tracking.</p>
+            <a class="dashboard-thumb" href="https://public.tableau.com/views/Book2_17578109470860/CustomerChurnInsightsDashboard?:language=en-US&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener" data-dashboard-preview data-preview-title="Customer Churn Insights Dashboard" data-embed-url="https://public.tableau.com/views/Book2_17578109470860/CustomerChurnInsightsDashboard?:showVizHome=no&amp;:embed=true&amp;:toolbar=yes" data-open-url="https://public.tableau.com/views/Book2_17578109470860/CustomerChurnInsightsDashboard?:language=en-US&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" aria-label="Open the Customer Churn Insights Dashboard in a pop-out window">
+              <img src="https://public.tableau.com/static/images/Bo/Book2_17578109470860/CustomerChurnInsightsDashboard/1.png" alt="Thumbnail of the Customer Churn Insights Dashboard highlighting churn KPIs and cohort trends" loading="lazy">
+              <span class="dashboard-thumb-cta"><i class="fa-solid fa-arrow-up-right-from-square"></i> Preview dashboard</span>
+            </a>
+          </article>
+
+          <article class="dashboard-card dashboard-embed-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Healthcare Readmission Insights Dashboard</h3>
+                <div class="dashboard-subtitle">
+                  <span><i class="fa-solid fa-hospital"></i> CMS Hospital Readmissions</span>
+                </div>
+              </div>
+              <a class="dashboard-link" href="https://public.tableau.com/views/Book1_17577441603200/HealthcareReadmissionInsightsDashboard?:language=en-US&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">
+                View full dashboard
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+            <p class="dashboard-description">Tracks hospital readmission performance with LOS drilldowns, risk flags, and savings scenarios so care teams can prioritize interventions and benchmark against national averages.</p>
+            <a class="dashboard-thumb" href="https://public.tableau.com/views/Book1_17577441603200/HealthcareReadmissionInsightsDashboard?:language=en-US&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener" data-dashboard-preview data-preview-title="Healthcare Readmission Insights Dashboard" data-embed-url="https://public.tableau.com/views/Book1_17577441603200/HealthcareReadmissionInsightsDashboard?:showVizHome=no&amp;:embed=true&amp;:toolbar=yes" data-open-url="https://public.tableau.com/views/Book1_17577441603200/HealthcareReadmissionInsightsDashboard?:language=en-US&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" aria-label="Open the Healthcare Readmission Insights Dashboard in a pop-out window">
+              <img src="https://public.tableau.com/static/images/Bo/Book1_17577441603200/HealthcareReadmissionInsightsDashboard/1.png" alt="Thumbnail of the Healthcare Readmission Insights Dashboard showing readmission KPIs and LOS trends" loading="lazy">
+              <span class="dashboard-thumb-cta"><i class="fa-solid fa-arrow-up-right-from-square"></i> Preview dashboard</span>
+            </a>
+          </article>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <div class="sub-row">
-        <span style="color: var(--muted); font-size: 0.9rem;">Enter to send • Shift+Enter for newline</span>
-        <button class="clear-btn" id="clearChat">Clear chat</button>
+  <div class="dashboard-modal" id="dashboardModal" aria-hidden="true">
+    <div class="dashboard-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dashboardModalTitle">
+      <button type="button" class="dashboard-modal-close" id="dashboardModalClose" aria-label="Close dashboard preview">×</button>
+      <div class="dashboard-modal-header">
+        <h3 id="dashboardModalTitle">Dashboard preview</h3>
+        <div class="dashboard-modal-actions">
+          <a class="dashboard-modal-link" id="dashboardModalExternal" href="#" target="_blank" rel="noopener">
+            Open in new tab
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+      <div class="dashboard-modal-body">
+        <iframe id="dashboardModalFrame" class="dashboard-frame" title="Dashboard preview frame" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="inner">
+      <small>© <span id="footerYear"></span> Kalyani Mohite. Open to internships &amp; full-time opportunities in data, analytics, and product insights.</small>
+      <div class="btn-row" style="justify-content: center;">
+        <a class="btn btn-secondary" href="mailto:kmohite@gmu.edu">
+          <i class="fa-solid fa-envelope"></i> kmohite@gmu.edu
+        </a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/kalyanimohite26/" target="_blank" rel="noopener">
+          <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="chat-toggle" aria-controls="chat-widget" aria-expanded="false" title="Ask the AI">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v14l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" /></svg>
+  </button>
+
+  <div id="chat-widget" class="chat-widget" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-title">
+        <span class="chat-title-text">Ask the AI</span>
+        <span class="chat-status"><span class="status-dot" aria-hidden="true"></span>Profile-aware</span>
+      </div>
+      <button class="chat-close" id="chat-close" aria-label="Close chat">×</button>
+    </div>
+    <div class="chat-body">
+      <div id="chat-log">
+        <div class="msg ai">Hi! Ask me anything about Kalyani’s profile, projects, or craft recruiter-friendly highlights.</div>
+      </div>
+      <div class="chat-quick">
+        <span class="chat-chip" data-q="Summarize my profile in 2 lines for a recruiter.">Profile summary</span>
+        <span class="chat-chip" data-q="Which project should I highlight for a Data Analyst role?">Which project?</span>
+        <span class="chat-chip" data-q="Write a one-line LinkedIn headline for me.">LinkedIn headline</span>
+        <span class="chat-chip" data-q="Briefly highlight my SQL + Power BI strengths.">Skills highlight</span>
+      </div>
+      <div class="chat-input">
+        <textarea id="chat-text" rows="2" placeholder="Type your question… (Cmd/Ctrl + Enter to send)"></textarea>
+        <button id="chat-send">Send</button>
       </div>
     </div>
   </div>
 
   <script>
-    // ===== UTILITIES =====
-    function formatTS(d = new Date()) {
-      return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-    function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }
+    document.addEventListener('DOMContentLoaded', () => {
+      const siteNav = document.getElementById('siteNav');
+      const navToggle = document.getElementById('navToggle');
+      const navOverlay = document.getElementById('navOverlay');
+      const navLinks = siteNav.querySelectorAll('a[href^="#"]');
+      const sections = document.querySelectorAll('main section');
+      const skillCards = document.querySelectorAll('.skill-card');
+      const footerYear = document.getElementById('footerYear');
 
-    // ===== BACK TO TOP =====
-    (function() {
-      const btn = document.getElementById('backToTop');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 250) btn.classList.add('show');
-        else btn.classList.remove('show');
-      });
-      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    })();
+      if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-    // ===== BUILD PROFILE CONTEXT FROM PAGE =====
-    function buildProfileContext() {
-      const gatherText = (selector) => {
-        return Array.from(document.querySelectorAll(selector))
-          .map(el => el.innerText.trim())
-          .filter(Boolean)
-          .join('\n');
+      const closeNav = () => {
+        siteNav.classList.remove('open');
+        navOverlay.classList.remove('visible');
+        navToggle.setAttribute('aria-expanded', 'false');
       };
-      const education = gatherText('.edu-context');
-      const experience = gatherText('.exp-context');
-      const projects = gatherText('.proj-context');
-      const skills = gatherText('.skill-context');
 
-      return [
-        "=== EDUCATION ===",
-        education || "(none)",
-        "=== EXPERIENCE ===",
-        experience || "(none)",
-        "=== PROJECTS ===",
-        projects || "(none)",
-        "=== SKILLS ===",
-        skills || "(none)"
-      ].join('\n');
-    }
-
-    // ===== CHAT STATE =====
-    const CHAT_KEY = 'km_chat_history_v2';
-    function loadHistory() {
-      try {
-        const raw = localStorage.getItem(CHAT_KEY);
-        return raw ? JSON.parse(raw) : [];
-      } catch {
-        return [];
-      }
-    }
-    function saveHistory(hist) {
-      localStorage.setItem(CHAT_KEY, JSON.stringify(hist));
-    }
-
-    // ===== RENDER CHAT =====
-    function renderChat(chatEl, hist) {
-      chatEl.innerHTML = '';
-      hist.forEach(msg => {
-        const div = document.createElement('div');
-        div.className = 'bubble ' + (msg.role === 'user' ? 'user' : 'ai');
-        div.textContent = msg.content;
-        const ts = document.createElement('div');
-        ts.className = 'ts';
-        ts.textContent = msg.ts || formatTS();
-        div.appendChild(ts);
-        chatEl.appendChild(div);
+      navToggle.addEventListener('click', () => {
+        const isOpen = !siteNav.classList.contains('open');
+        siteNav.classList.toggle('open', isOpen);
+        navOverlay.classList.toggle('visible', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
       });
-    }
 
-    // ===== TYPEWRITER EFFECT =====
-    async function typewriterAppend(chatEl, text, ts) {
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble ai';
-      const tsEl = document.createElement('div');
-      tsEl.className = 'ts'; tsEl.textContent = ts || formatTS();
-      bubble.appendChild(tsEl);
-      chatEl.appendChild(bubble);
+      navOverlay.addEventListener('click', closeNav);
 
-      let i = 0;
-      const chunk = () => {
-        const next = text.slice(0, i += Math.max(1, Math.floor(text.length / 120)));
-        bubble.firstChild && bubble.removeChild(tsEl); // keep ts at end
-        bubble.textContent = next;
-        bubble.appendChild(tsEl);
-        scrollToBottom(chatEl.parentElement);
-        if (i < text.length) requestAnimationFrame(chunk);
-      };
-      requestAnimationFrame(chunk);
-    }
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          closeNav();
+        });
+      });
 
-    // ===== AI WIDGET =====
-    (function() {
-      const btn = document.getElementById('floatingAiButton');
-      const widget = document.getElementById('aiWidget');
-      const closeBtn = document.getElementById('aiWidgetClose');
-      const chatEl = document.getElementById('chat');
-      const typingIndicator = document.getElementById('typingIndicator');
-      const textarea = document.getElementById('aiTextarea');
-      const sendBtn = document.getElementById('sendBtn');
-      const clearBtn = document.getElementById('clearChat');
-      const suggestionsEl = document.getElementById('suggestions');
-      const aiBody = document.getElementById('aiBody');
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              const targetId = link.getAttribute('href');
+              const parent = link.parentElement;
+              if (parent) parent.classList.toggle('active', targetId === `#${entry.target.id}`);
+            });
+          }
+        });
+      }, { rootMargin: '-55% 0px -40% 0px' });
 
-      let hist = loadHistory();
-      let profileContext = '';
+      sections.forEach(section => sectionObserver.observe(section));
 
-      // init
-      profileContext = buildProfileContext();
-      renderChat(chatEl, hist);
-      setTimeout(() => scrollToBottom(aiBody), 50);
+      const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.35 });
 
-      // open/close
-      function toggleWidget() {
-        widget.classList.toggle('open');
-        if (widget.classList.contains('open')) {
-          setTimeout(() => textarea.focus(), 100);
+      skillCards.forEach(card => skillObserver.observe(card));
+
+      const dashboardModal = document.getElementById('dashboardModal');
+      const dashboardModalTitle = document.getElementById('dashboardModalTitle');
+      const dashboardModalFrame = document.getElementById('dashboardModalFrame');
+      const dashboardModalExternal = document.getElementById('dashboardModalExternal');
+      const dashboardModalClose = document.getElementById('dashboardModalClose');
+      const dashboardPreviewLinks = document.querySelectorAll('[data-dashboard-preview]');
+
+      const closeDashboardModal = () => {
+        if (!dashboardModal) return;
+        dashboardModal.classList.remove('open');
+        dashboardModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('dashboard-modal-open');
+        if (dashboardModalFrame) {
+          dashboardModalFrame.setAttribute('src', '');
         }
+      };
+
+      const openDashboardModal = (link) => {
+        if (!dashboardModal || !dashboardModalFrame || !dashboardModalTitle) return;
+
+        const embedUrl = link.getAttribute('data-embed-url');
+        const previewTitle = link.getAttribute('data-preview-title') || 'Dashboard preview';
+        const externalUrl = link.getAttribute('data-open-url') || link.getAttribute('href');
+
+        if (!embedUrl) {
+          window.open(externalUrl, '_blank');
+          return;
+        }
+
+        dashboardModalTitle.textContent = previewTitle;
+        dashboardModalFrame.setAttribute('src', embedUrl);
+        dashboardModalFrame.setAttribute('title', `${previewTitle} preview`);
+
+        if (dashboardModalExternal) {
+          dashboardModalExternal.setAttribute('href', externalUrl || embedUrl);
+        }
+
+        dashboardModal.classList.add('open');
+        dashboardModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('dashboard-modal-open');
+
+        requestAnimationFrame(() => {
+          if (dashboardModalClose) dashboardModalClose.focus();
+        });
+      };
+
+      if (dashboardPreviewLinks.length) {
+        dashboardPreviewLinks.forEach(link => {
+          link.addEventListener('click', (event) => {
+            if (event.defaultPrevented) return;
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+            event.preventDefault();
+            openDashboardModal(link);
+          });
+        });
       }
-      btn.addEventListener('click', toggleWidget);
-      closeBtn.addEventListener('click', () => widget.classList.remove('open'));
 
-      // textarea auto-grow
-      function autoGrow() {
-        textarea.style.height = 'auto';
-        textarea.style.height = Math.min(textarea.scrollHeight, 160) + 'px';
+      if (dashboardModalClose) {
+        dashboardModalClose.addEventListener('click', (event) => {
+          event.preventDefault();
+          closeDashboardModal();
+        });
       }
-      textarea.addEventListener('input', autoGrow);
-      autoGrow();
 
-      // suggestions
-      suggestionsEl.addEventListener('click', (e) => {
-        const chip = e.target.closest('.chip');
-        if (!chip) return;
-        textarea.value = chip.textContent;
-        autoGrow();
-        sendMessage();
-      });
+      if (dashboardModal) {
+        dashboardModal.addEventListener('click', (event) => {
+          if (event.target === dashboardModal) {
+            closeDashboardModal();
+          }
+        });
+      }
 
-      // enter to send, shift+enter newline
-      textarea.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          sendMessage();
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && dashboardModal && dashboardModal.classList.contains('open')) {
+          closeDashboardModal();
         }
       });
-      sendBtn.addEventListener('click', sendMessage);
+    });
+  </script>
 
-      // clear chat
-      clearBtn.addEventListener('click', () => {
-        hist = [];
-        saveHistory(hist);
-        renderChat(chatEl, hist);
+  <script>
+    (() => {
+      const toggleBtn = document.getElementById('chat-toggle');
+      const widget = document.getElementById('chat-widget');
+      const closeBtn = document.getElementById('chat-close');
+      const logEl = document.getElementById('chat-log');
+      const textEl = document.getElementById('chat-text');
+      const sendBtn = document.getElementById('chat-send');
+
+      if (!toggleBtn || !widget || !logEl || !textEl || !sendBtn) return;
+
+      const smoothScrollToBottom = () => {
+        const nearBottom = logEl.scrollHeight - logEl.scrollTop - logEl.clientHeight < 56;
+        const behavior = nearBottom ? 'smooth' : 'auto';
+        requestAnimationFrame(() => {
+          logEl.scrollTo({ top: logEl.scrollHeight, behavior });
+        });
+      };
+
+      const resizeTextarea = () => {
+        textEl.style.height = 'auto';
+        const maxHeight = 160;
+        const next = Math.min(textEl.scrollHeight, maxHeight);
+        textEl.style.height = `${next}px`;
+      };
+
+      resizeTextarea();
+      textEl.addEventListener('input', resizeTextarea);
+
+      function openChat() {
+        widget.classList.add('open');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        widget.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('chat-open');
+        setTimeout(() => textEl.focus(), 120);
+      }
+
+      function closeChat() {
+        widget.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        widget.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('chat-open');
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        widget.classList.contains('open') ? closeChat() : openChat();
       });
 
-      // send
-      async function sendMessage() {
-        const q = textarea.value.trim();
-        if (!q) return;
+      if (closeBtn) closeBtn.addEventListener('click', closeChat);
 
-        // add user bubble
-        const userMsg = { role: 'user', content: q, ts: formatTS() };
-        hist.push(userMsg);
-        saveHistory(hist);
-        renderChat(chatEl, hist);
-        scrollToBottom(aiBody);
+      function addMsg(role, text) {
+        const el = document.createElement('div');
+        el.className = `msg ${role === 'user' ? 'user' : 'ai'}`;
+        el.textContent = text;
+        logEl.appendChild(el);
+        smoothScrollToBottom();
+      }
 
-        // clear input
-        textarea.value = '';
-        autoGrow();
+      function setLoading(isLoading) {
+        sendBtn.disabled = isLoading;
+        if (isLoading) {
+          sendBtn.innerHTML = 'Send <span class="spinner"></span>';
+        } else {
+          sendBtn.textContent = 'Send';
+        }
+      }
 
-        // show typing
-        typingIndicator.classList.add('show');
-
+      async function sendQuestion(q) {
+        if (!q || !q.trim()) return;
+        const question = q.trim();
+        addMsg('user', question);
+        setLoading(true);
         try {
-          const resp = await fetch('/api/ask', {
+          const res = await fetch('/ask', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              question: q,
-              context: profileContext
-            })
+            body: JSON.stringify({ question })
           });
-
-          const data = await resp.json();
-          const answer = data.answer || '(No answer)';
-
-          // typing effect
-          await typewriterAppend(chatEl, answer, formatTS());
-
-          const aiMsg = { role: 'assistant', content: answer, ts: formatTS() };
-          hist.push(aiMsg);
-          saveHistory(hist);
-
-        } catch (err) {
-          const errMsg = 'Error: ' + (err.message || 'Request failed');
-          await typewriterAppend(chatEl, errMsg, formatTS());
-          hist.push({ role: 'assistant', content: errMsg, ts: formatTS() });
-          saveHistory(hist);
+          const data = await res.json();
+          if (data && data.answer) addMsg('ai', data.answer);
+          else addMsg('ai', 'Sorry, I could not generate a response right now.');
+        } catch (error) {
+          console.error(error);
+          addMsg('ai', 'Error talking to the AI service. Please try again in a moment.');
         } finally {
-          typingIndicator.classList.remove('show');
-          scrollToBottom(aiBody);
+          setLoading(false);
         }
       }
-    })();
 
-    // Highlight nav on scroll
-    (function(){
-      const links = document.querySelectorAll('.main-top-nav li');
-      const sections = ['home','education','experience','projects','skills','dashboards']
-        .map(id => document.getElementById(id)).filter(Boolean);
+      sendBtn.addEventListener('click', () => {
+        const q = textEl.value;
+        textEl.value = '';
+        resizeTextarea();
+        sendQuestion(q);
+      });
 
-      function onScroll() {
-        const y = window.scrollY + 120;
-        let current = sections[0]?.id;
-        sections.forEach(sec => {
-          if (sec.offsetTop <= y) current = sec.id;
+      textEl.addEventListener('keydown', (event) => {
+        if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
+          event.preventDefault();
+          const q = textEl.value;
+          textEl.value = '';
+          resizeTextarea();
+          sendQuestion(q);
+        }
+      });
+
+      document.querySelectorAll('.chat-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const q = chip.getAttribute('data-q') || chip.textContent;
+          textEl.value = q;
+          textEl.focus();
+          resizeTextarea();
         });
-        links.forEach(li => {
-          const a = li.querySelector('a');
-          li.classList.toggle('active', a && a.getAttribute('href') === '#' + current);
-        });
-      }
-      window.addEventListener('scroll', onScroll);
-      onScroll();
+      });
     })();
   </script>
 </body>
