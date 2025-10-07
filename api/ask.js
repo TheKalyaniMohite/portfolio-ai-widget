@@ -62,8 +62,25 @@ function buildSystemPrompt(profile) {
     summaryPieces.push('Skills: ' + safeProfile.skills.join(', '));
   }
 
+  if (Array.isArray(safeProfile.dashboards)) {
+    summaryPieces.push(
+      'Dashboards:\n' +
+      safeProfile.dashboards
+        .map((dash) => `- ${dash.title}: ${dash.description}`)
+        .join('\n')
+    );
+  }
+
+  if (Array.isArray(safeProfile.achievements)) {
+    summaryPieces.push('Key Achievements:\n' + safeProfile.achievements.map(a => `- ${a}`).join('\n'));
+  }
+
+  if (Array.isArray(safeProfile.technical_focus)) {
+    summaryPieces.push('Technical Focus Areas:\n' + safeProfile.technical_focus.map(f => `- ${f}`).join('\n'));
+  }
+
   summaryPieces.push(
-    "Guidelines: Answer as Kalyani's AI assistant. Only use the provided profile information."
+    `Guidelines: You are Kalyani Mohite's AI assistant. Answer questions about her background, experience, projects, and skills based on the provided information. Be conversational, helpful, and professional. If asked about specific technical details or project implementations, provide insights based on the listed technologies and achievements. For questions outside her profile scope, politely redirect to her portfolio content.`
   );
 
   return summaryPieces.join('\n\n');

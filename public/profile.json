@@ -1,7 +1,7 @@
 {
     "name": "Kalyani Mohite",
     "headline": "Data Analyst | SQL, Python, Power BI | MS CS @ GMU (May 2025)",
-    "summary": "Computer Science graduate passionate about data analysis and building meaningful solutions. Enjoys working at the intersection of logic and creativity, creating dashboards, analyzing patterns, and developing apps that improve everyday tasks.",
+    "summary": "Computer Science graduate passionate about data analysis and building meaningful solutions. Enjoys working at the intersection of logic and creativity, creating dashboards, analyzing patterns, and developing apps that improve everyday tasks. Specializes in Python ETL pipelines, SQL optimization, dashboard development with Power BI and Tableau, and modern web applications using Next.js. Experienced with cloud platforms (AWS, Google Cloud, Azure) and machine learning workflows including LLMs and embeddings.",
     "education": [
       {
         "degree": "M.S. Computer Science",
@@ -64,6 +64,27 @@
     ],
     "projects": [
       {
+        "title": "EV Charging Insights Dashboard",
+        "highlights": [
+          "Analyzed California EV charging station data using Python and Pandas",
+          "Built comprehensive ETL pipeline for processing CSV data",
+          "Created interactive Tableau dashboard showing EV infrastructure trends",
+          "Deployed on Next.js platform with Vercel hosting",
+          "Technologies: Python, Pandas, CSV ETL, Tableau, Next.js, Vercel, Git/GitHub"
+        ]
+      },
+      {
+        "title": "Competitive Product Insights Platform",
+        "highlights": [
+          "Developed Next.js application for competitive product analysis",
+          "Implemented Python ETL processes for data transformation using Pandas",
+          "Integrated LLM technology for intelligent insights and embeddings",
+          "Built responsive UI with Tailwind CSS and interactive charts using Recharts",
+          "Deployed on Vercel with comprehensive analytics dashboard",
+          "Technologies: Next.js, Vercel, Python ETL, Pandas, LLMs, Embeddings, Tailwind, Recharts"
+        ]
+      },
+      {
         "title": "AI-Powered Resume Analyzer & Job Matcher",
         "highlights": [
           "Flask on Google Cloud (Cloud Functions, BigQuery, Cloud Storage)",
@@ -92,12 +113,46 @@
           "Instacart dataset; association rules at aisle/category level",
           "Bundle ideas and cross-merchandising insights"
         ]
+      },
+      {
+        "title": "SQL Text-to-Query Assistant",
+        "highlights": [
+          "Built intelligent SQL query generator using Python and LLM integration",
+          "Implemented SQLite database management with natural language processing",
+          "Created Streamlit web interface for user-friendly query interaction",
+          "Utilized OpenAI SDK for advanced language model capabilities",
+          "Technologies: Python, SQL, SQLite, LLM, Streamlit, OpenAI SDK"
+        ]
       }
     ],
+    "dashboards": [
+      {
+        "title": "California EV Charging Infrastructure Analysis",
+        "description": "Interactive Tableau dashboard analyzing EV charging station distribution, utilization patterns, and infrastructure growth trends across California",
+        "technologies": ["Tableau", "Python", "Pandas", "CSV ETL"]
+      }
+    ],
+    "achievements": [
+      "Won 1st place at GMU Hackathon with Smart Door Chat project",
+      "Improved campaign ROI by 20% through data migration and modeling",
+      "Reduced manual effort by 40% through Python ETL optimization",
+      "Achieved 85%+ accuracy in churn prediction models",
+      "Increased data accuracy by 25% through Redshift/PostgreSQL ETL"
+    ],
+    "technical_focus": [
+      "Data Engineering & ETL Pipelines",
+      "Business Intelligence & Dashboard Development", 
+      "Machine Learning & Predictive Analytics",
+      "Cloud Data Solutions (AWS, Google Cloud, Azure)",
+      "Full-Stack Web Development with Modern Frameworks"
+    ],
     "skills": [
-      "Python", "SQL", "R", "Power BI", "Tableau",
-      "TensorFlow", "XGBoost", "Edge AI",
-      "AWS", "Google Cloud", "Firebase"
+      "Python", "SQL", "R", "Power BI", "Tableau", "Excel",
+      "TensorFlow", "XGBoost", "Machine Learning", "LLMs", "Embeddings",
+      "AWS", "Google Cloud", "Firebase", "Next.js", "Vercel",
+      "Pandas", "ETL", "Data Mining", "Streamlit", "Flask",
+      "PostgreSQL", "SQLite", "Git/GitHub", "Tailwind CSS", "Recharts",
+      "Azure Synapse", "BigQuery", "Redshift", "dbt", "MQTT"
     ]
   }
   
