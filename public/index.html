@@ -200,9 +200,10 @@
     .section-heading span {
       text-transform: uppercase;
       letter-spacing: 0.35em;
-      font-size: 0.75rem;
+      font-size: clamp(2.2rem, 5vw, 3rem);
       font-weight: 600;
       color: var(--accent-500);
+      font-family: var(--font-display);
     }
 
     .section-heading h2 {
@@ -1520,8 +1521,7 @@
     <section id="experience" class="section">
       <div class="inner">
         <div class="section-heading">
-          <h2><span>Experience</span></h2>
-          <h2>Impact across data, analytics, and growth</h2>
+          <span>Experience</span>
           <p>Hands-on experience building reliable pipelines, surfacing actionable insights, and partnering with cross-functional teams to ship measurable results.</p>
         </div>
         <div class="timeline">
@@ -1585,7 +1585,6 @@
       <div class="inner">
         <div class="section-heading">
           <span>Projects</span>
-          <h2>Selected builds and analytical storytelling</h2>
           <p>A mix of productionized tools and experimentation—each focused on solving real user problems with scalable data and AI craftsmanship.</p>
         </div>
         <div class="projects-horizontal">
@@ -1746,7 +1745,6 @@
       <div class="inner">
         <div class="section-heading">
           <span>Education</span>
-          <h2>Foundations in computer science &amp; analytics</h2>
           <p>Grounded in rigorous coursework and applied research that bridges theory with data-driven impact.</p>
         </div>
         <div class="card-grid">
@@ -1781,7 +1779,6 @@
       <div class="inner">
         <div class="section-heading">
           <span>Skills</span>
-          <h2>Toolbox for shipping data &amp; AI outcomes</h2>
           <p>Comfortable moving between analytics, automation, and cloud-first delivery to accelerate decision-making.</p>
         </div>
         <div class="skills-grid" id="skillsGrid">
@@ -1823,7 +1820,6 @@
       <div class="inner">
         <div class="section-heading">
           <span>Dashboards</span>
-          <h2>Interactive storytelling at a glance</h2>
           <p>Curated dashboards distilling complex datasets into executive-ready narratives. Drop in your Tableau, Power BI, or Looker embeds here.</p>
         </div>
         <div class="btn-row dashboard-cta">
