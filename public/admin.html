@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin - Update Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0A0D13 0%, #161B22 100%);
+            color: #E6EDF3;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .admin-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(33, 38, 45, 0.8);
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(48, 54, 61, 0.3);
+            backdrop-filter: blur(20px);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #00D2FF 0%, #3FB8FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            color: #7D8590;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #F6F8FA;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(48, 54, 61, 0.5);
+            background: rgba(48, 54, 61, 0.3);
+            color: #E6EDF3;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3FB8FF;
+            box-shadow: 0 0 0 3px rgba(63, 184, 255, 0.1);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #00D2FF 0%, #3FB8FF 100%);
+            color: #0A0D13;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(63, 184, 255, 0.3);
+        }
+        
+        .current-info {
+            background: rgba(48, 54, 61, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(63, 184, 255, 0.2);
+        }
+        
+        .current-info h3 {
+            color: #3FB8FF;
+            margin-bottom: 1rem;
+        }
+        
+        .current-value {
+            font-style: italic;
+            color: #B1BAC4;
+        }
+        
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .success {
+            background: rgba(46, 160, 67, 0.2);
+            border: 1px solid rgba(46, 160, 67, 0.3);
+            color: #57d193;
+        }
+        
+        .error {
+            background: rgba(248, 81, 73, 0.2);
+            border: 1px solid rgba(248, 81, 73, 0.3);
+            color: #f85149;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Portfolio Admin</h1>
+        <p class="subtitle">Update your profile information</p>
+        
+        <div id="message" class="message"></div>
+        
+        <div class="current-info">
+            <h3>Current LinkedIn Headline</h3>
+            <p class="current-value" id="currentHeadline">Loading...</p>
+            <small style="color: #7D8590;">Last updated: <span id="lastUpdated">Unknown</span></small>
+        </div>
+        
+        <form id="updateForm">
+            <div class="form-group">
+                <label for="headline">New LinkedIn Headline</label>
+                <input type="text" id="headline" name="headline" placeholder="Enter your current LinkedIn headline..." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="linkedinUrl">LinkedIn Profile URL (Optional)</label>
+                <input type="url" id="linkedinUrl" name="linkedinUrl" placeholder="https://linkedin.com/in/your-profile">
+            </div>
+            
+            <button type="submit" class="btn">Update Profile</button>
+        </form>
+    </div>
+
+    <script>
+        // Load current profile data
+        async function loadCurrentProfile() {
+            try {
+                const response = await fetch('/profile.json');
+                const profile = await response.json();
+                
+                document.getElementById('currentHeadline').textContent = profile.headline || 'Not set';
+                document.getElementById('lastUpdated').textContent = profile.headline_last_updated || 'Unknown';
+                document.getElementById('headline').value = profile.headline || '';
+                document.getElementById('linkedinUrl').value = profile.linkedin_profile || '';
+            } catch (error) {
+                console.error('Error loading profile:', error);
+                showMessage('Error loading current profile data', 'error');
+            }
+        }
+        
+        // Show message to user
+        function showMessage(text, type) {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = text;
+            messageEl.className = `message ${type}`;
+            messageEl.style.display = 'block';
+            
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Handle form submission
+        document.getElementById('updateForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const headline = document.getElementById('headline').value.trim();
+            const linkedinUrl = document.getElementById('linkedinUrl').value.trim();
+            
+            if (!headline) {
+                showMessage('Please enter a headline', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/update-profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        headline,
+                        linkedin_profile: linkedinUrl,
+                        headline_last_updated: new Date().toISOString().split('T')[0]
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showMessage('Profile updated successfully!', 'success');
+                    loadCurrentProfile(); // Refresh the display
+                } else {
+                    showMessage(result.error || 'Failed to update profile', 'error');
+                }
+            } catch (error) {
+                console.error('Error updating profile:', error);
+                showMessage('Error updating profile. Please try again.', 'error');
+            }
+        });
+        
+        // Load current profile on page load
+        loadCurrentProfile();
+    </script>
+</body>
+</html>

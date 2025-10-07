@@ -1,6 +1,8 @@
 {
     "name": "Kalyani Mohite",
     "headline": "Data Analyst | SQL, Python, Power BI | MS CS Graduate",
+    "linkedin_profile": "https://linkedin.com/in/kalyani-mohite",
+    "headline_last_updated": "2025-10-07",
     "summary": "Recent Computer Science Master's graduate passionate about data analysis and building meaningful solutions. Enjoys working at the intersection of logic and creativity, creating dashboards, analyzing patterns, and developing apps that improve everyday tasks. Specializes in Python ETL pipelines, SQL optimization, dashboard development with Power BI and Tableau, and modern web applications using Next.js. Experienced with cloud platforms (AWS, Google Cloud, Azure) and machine learning workflows including LLMs and embeddings.",
     "current_status": "Recently graduated with Master's degree in Computer Science from George Mason University (May 2025)",
     "education": [

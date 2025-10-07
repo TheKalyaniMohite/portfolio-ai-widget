@@ -3,16 +3,26 @@ import path from "path";
 import { readFile } from "fs/promises";
 
 let cachedProfile = null;
+let cacheTimestamp = null;
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 async function loadProfile() {
-  if (cachedProfile) return cachedProfile;
+  const now = Date.now();
+  
+  // Check if cache is still valid
+  if (cachedProfile && cacheTimestamp && (now - cacheTimestamp) < CACHE_DURATION) {
+    return cachedProfile;
+  }
+  
   try {
     const profilePath = path.join(process.cwd(), "public", "profile.json");
     const json = await readFile(profilePath, "utf8");
     cachedProfile = JSON.parse(json);
+    cacheTimestamp = now;
   } catch (error) {
     console.error("[api/ask] Failed to load profile.json:", error);
     cachedProfile = null;
+    cacheTimestamp = null;
   }
   return cachedProfile;
 }
@@ -21,7 +31,9 @@ function buildSystemPrompt(profile) {
   const safeProfile = profile || {};
   const summaryPieces = [
     `Name: ${safeProfile.name ?? 'N/A'}`,
-    `Headline: ${safeProfile.headline ?? 'N/A'}`,
+    `Current Professional Headline: ${safeProfile.headline ?? 'N/A'}`,
+    `LinkedIn Profile: ${safeProfile.linkedin_profile ?? 'Not specified'}`,
+    `Headline Last Updated: ${safeProfile.headline_last_updated ?? 'Unknown'}`,
     `Summary: ${safeProfile.summary ?? ''}`,
   ];
 
@@ -107,6 +119,8 @@ EXAMPLE RESPONSES:
 - "What is her latest degree?" → "Her latest degree is an M.S. in Computer Science from George Mason University, which she completed in May 2025."
 - "Is she currently studying?" → "No, Kalyani recently graduated from her Master's program in May 2025 and is now available for professional opportunities."
 
+- If asked about LinkedIn headline, mention the last updated date and suggest checking her LinkedIn profile directly for the most current version
+- If asked about updating profile information, mention that there's an admin interface available for easy updates
 - If asked about specific technical details or project implementations, provide insights based on the listed technologies and achievements
 - For questions outside her profile scope, politely redirect to her portfolio content`
   );

@@ -2518,6 +2518,18 @@
           resizeTextarea();
         });
       });
+
+      // Admin access - Press Ctrl+Shift+A to access admin panel
+      let adminKeySequence = [];
+      document.addEventListener('keydown', (event) => {
+        if (event.ctrlKey && event.shiftKey && event.key === 'A') {
+          event.preventDefault();
+          const password = prompt('Enter admin password:');
+          if (password === 'admin2025' || password === 'kalyani') {
+            window.open('/admin.html', '_blank');
+          }
+        }
+      });
     })();
   </script>
 </body>
