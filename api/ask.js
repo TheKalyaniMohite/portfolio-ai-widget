@@ -25,13 +25,27 @@ function buildSystemPrompt(profile) {
     `Summary: ${safeProfile.summary ?? ''}`,
   ];
 
+  if (safeProfile.current_status) {
+    summaryPieces.push(`Current Status: ${safeProfile.current_status}`);
+  }
+
   if (Array.isArray(safeProfile.education)) {
-    summaryPieces.push(
-      'Education:\n' +
-      safeProfile.education
-        .map((edu) => `- ${edu.degree} at ${edu.school} (${edu.dates ?? 'dates n/a'})`)
-        .join('\n')
-    );
+    const recentEducation = safeProfile.education.find(edu => edu.is_recent);
+    const allEducation = safeProfile.education
+      .map((edu) => {
+        const status = edu.status ? ` (${edu.status})` : '';
+        const recent = edu.is_recent ? ' [MOST RECENT]' : '';
+        return `- ${edu.degree} at ${edu.school} (${edu.dates ?? 'dates n/a'})${status}${recent}`;
+      })
+      .join('\n');
+    
+    summaryPieces.push('Education:\n' + allEducation);
+    
+    if (recentEducation) {
+      summaryPieces.push(
+        `Most Recent Education: ${recentEducation.degree} at ${recentEducation.school} (${recentEducation.dates}) - ${recentEducation.status}`
+      );
+    }
   }
 
   if (Array.isArray(safeProfile.experience)) {
@@ -80,7 +94,21 @@ function buildSystemPrompt(profile) {
   }
 
   summaryPieces.push(
-    `Guidelines: You are Kalyani Mohite's AI assistant. Answer questions about her background, experience, projects, and skills based on the provided information. Be conversational, helpful, and professional. If asked about specific technical details or project implementations, provide insights based on the listed technologies and achievements. For questions outside her profile scope, politely redirect to her portfolio content.`
+    `Guidelines: You are Kalyani Mohite's AI assistant. Answer questions about her background, experience, projects, and skills based on the provided information. Be conversational, helpful, and professional.
+
+IMPORTANT CONTEXT RULES:
+- Kalyani has GRADUATED from her Master's program (not currently pursuing) - she completed her M.S. in Computer Science in May 2025
+- When asked about "recent education" or "latest education", refer ONLY to her Master's degree, not her Bachelor's degree
+- When asked about current status, emphasize she is a recent graduate looking for opportunities
+- Be specific and avoid mentioning older education unless specifically asked for complete educational background
+
+EXAMPLE RESPONSES:
+- "What is Kalyani's recent education?" → "Kalyani recently graduated with a Master of Science in Computer Science from George Mason University in May 2025, achieving a 3.9 GPA."
+- "What is her latest degree?" → "Her latest degree is an M.S. in Computer Science from George Mason University, which she completed in May 2025."
+- "Is she currently studying?" → "No, Kalyani recently graduated from her Master's program in May 2025 and is now available for professional opportunities."
+
+- If asked about specific technical details or project implementations, provide insights based on the listed technologies and achievements
+- For questions outside her profile scope, politely redirect to her portfolio content`
   );
 
   return summaryPieces.join('\n\n');
