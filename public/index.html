@@ -671,6 +671,167 @@
       margin-top: 0.5rem;
     }
 
+    /* Enhanced Experience Card Styles */
+    .experience-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .company-logo {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .company-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+    }
+
+    .experience-title-section {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .job-title {
+      margin: 0;
+      font-size: 1.35rem;
+      font-family: var(--font-display);
+      color: var(--text-100);
+      font-weight: 600;
+    }
+
+    .company-name {
+      margin: 0.25rem 0 0.75rem 0;
+      color: var(--accent-500);
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .experience-meta {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      color: var(--text-400);
+      font-size: 0.9rem;
+    }
+
+    .experience-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .experience-meta i {
+      font-size: 0.85rem;
+      color: var(--accent-400);
+    }
+
+    .experience-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .impact-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      padding: 1.25rem;
+      background: rgba(63, 184, 255, 0.05);
+      border: 1px solid rgba(63, 184, 255, 0.15);
+      border-radius: 12px;
+    }
+
+    .impact-highlights .impact-metric {
+      text-align: center;
+    }
+
+    .impact-highlights .metric-value {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-400);
+      font-family: var(--font-display);
+    }
+
+    .impact-highlights .metric-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-400);
+      margin-top: 0.25rem;
+      line-height: 1.3;
+    }
+
+    .achievements {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .achievement-item {
+      position: relative;
+      padding-left: 1rem;
+      color: var(--text-200);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .achievement-item::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent-500);
+      font-weight: bold;
+    }
+
+    .achievement-item strong {
+      color: var(--text-100);
+      font-weight: 600;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.8rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      color: var(--text-300);
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .tech-tag:hover {
+      background: rgba(63, 184, 255, 0.15);
+      border-color: rgba(63, 184, 255, 0.3);
+      color: var(--accent-300);
+    }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1955,6 +2116,48 @@
         left: -1.45rem;
       }
 
+      /* Enhanced Experience Mobile Styles */
+      .experience-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .company-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .experience-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .impact-highlights {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 1rem;
+      }
+
+      .impact-highlights .metric-value {
+        font-size: 1.25rem;
+      }
+
+      .achievement-item {
+        font-size: 0.9rem;
+      }
+
+      .tech-stack {
+        justify-content: center;
+      }
+
+      .tech-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
+
       #chat-toggle {
         width: 56px;
         height: 56px;
@@ -2108,58 +2311,239 @@
       <div class="inner">
         <div class="section-heading">
           <span>Experience</span>
+          <div class="section-stats">
+            <div class="stat-item">
+              <span class="stat-number">4+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">1TB+</span>
+              <span class="stat-label">Data Processed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">85%</span>
+              <span class="stat-label">Efficiency Gains</span>
+            </div>
+          </div>
         </div>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="frosted-card">
-              <h3>Data Analyst</h3>
-              <h4>Fortune Services</h4>
-              <div class="meta">
-                <span><i class="fa-regular fa-calendar"></i> Aug 2022 – Aug 2023</span>
-                <span><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+            <div class="experience-card frosted-card">
+              <div class="experience-header">
+                <div class="company-logo">
+                  <img src="Fortune_logo.png" alt="Fortune Services Logo" loading="lazy">
+                </div>
+                <div class="experience-title-section">
+                  <h3 class="job-title">Data Analyst</h3>
+                  <h4 class="company-name">Fortune Services</h4>
+                  <div class="experience-meta">
+                    <span class="duration"><i class="fa-regular fa-calendar"></i> Aug 2022 – Aug 2023</span>
+                    <span class="location"><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+                    <span class="employment-type"><i class="fa-solid fa-briefcase"></i> Full-time</span>
+                  </div>
+                </div>
               </div>
-              <ul>
-                <li>Migrated and modeled ~1 TB of marketing and CRM data on AWS S3, Redshift, and dbt to deliver end-to-end analytics pipelines, increasing campaign ROI by ~20%. Built Python ETL workflows and optimized SQL across heterogeneous sources, improving processing speed by ~30% and reducing manual reconciliation by ~40%. Collaborated with data engineering to train and evaluate Random Forest and Logistic Regression models (>85% accuracy) that informed maintenance schedules and reduced customer attrition.</li>
-              </ul>
+              <div class="experience-content">
+                <div class="impact-highlights">
+                  <div class="impact-metric">
+                    <span class="metric-value">~1TB</span>
+                    <span class="metric-label">Data Migrated</span>
+                  </div>
+                  <div class="impact-metric">
+                    <span class="metric-value">20%</span>
+                    <span class="metric-label">Campaign ROI Increase</span>
+                  </div>
+                  <div class="impact-metric">
+                    <span class="metric-value">85%</span>
+                    <span class="metric-label">Model Accuracy</span>
+                  </div>
+                </div>
+                <div class="achievements">
+                  <div class="achievement-item">
+                    <strong>Data Migration & Modeling:</strong> Migrated and modeled ~1TB of marketing and CRM data on AWS S3, Redshift, and dbt to deliver end-to-end analytics pipelines, increasing campaign ROI by ~20%
+                  </div>
+                  <div class="achievement-item">
+                    <strong>ETL Optimization:</strong> Built Python ETL workflows and optimized SQL across heterogeneous sources, improving processing speed by ~30% and reducing manual reconciliation by ~40%
+                  </div>
+                  <div class="achievement-item">
+                    <strong>Machine Learning:</strong> Collaborated with data engineering to train and evaluate Random Forest and Logistic Regression models (>85% accuracy) that informed maintenance schedules and reduced customer attrition
+                  </div>
+                </div>
+                <div class="tech-stack">
+                  <span class="tech-tag">AWS S3</span>
+                  <span class="tech-tag">Redshift</span>
+                  <span class="tech-tag">dbt</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">SQL</span>
+                  <span class="tech-tag">Random Forest</span>
+                  <span class="tech-tag">Logistic Regression</span>
+                </div>
+              </div>
             </div>
           </div>
+          
           <div class="timeline-item">
-            <div class="frosted-card">
-              <h3>Data &amp; Marketing Assistant</h3>
-              <h4>Early Identification Program · George Mason University</h4>
-              <div class="meta">
-                <span><i class="fa-regular fa-calendar"></i> Apr 2024 – May 2025</span>
-                <span><i class="fa-solid fa-map-marker-alt"></i> Fairfax, VA</span>
+            <div class="experience-card frosted-card">
+              <div class="experience-header">
+                <div class="company-logo">
+                  <img src="EIP_logo.png" alt="George Mason University EIP Logo" loading="lazy">
+                </div>
+                <div class="experience-title-section">
+                  <h3 class="job-title">Data & Marketing Assistant</h3>
+                  <h4 class="company-name">Early Identification Program · George Mason University</h4>
+                  <div class="experience-meta">
+                    <span class="duration"><i class="fa-regular fa-calendar"></i> Apr 2024 – May 2025</span>
+                    <span class="location"><i class="fa-solid fa-map-marker-alt"></i> Fairfax, VA</span>
+                    <span class="employment-type"><i class="fa-solid fa-graduation-cap"></i> Student Position</span>
+                  </div>
+                </div>
               </div>
-              <ul>
-                <li>Handled end-to-end pipeline for student engagement data using Amazon Redshift and PostgreSQL for loading and cleaning 500+ records, improving accuracy by 25% and cutting processing time nearly in half. Built Power BI and Tableau dashboards with filters and auto-refresh to reduce report prep time and reveal student details, engagement patterns, and campaign outcomes. Documented workflows, schema layouts, and key findings in Confluence and GitHub, delivering reports and slide decks that informed 200+ decisions each quarter.</li>
-              </ul>
+              <div class="experience-content">
+                <div class="impact-highlights">
+                  <div class="impact-metric">
+                    <span class="metric-value">500+</span>
+                    <span class="metric-label">Records Processed</span>
+                  </div>
+                  <div class="impact-metric">
+                    <span class="metric-value">25%</span>
+                    <span class="metric-label">Accuracy Improvement</span>
+                  </div>
+                  <div class="impact-metric">
+                    <span class="metric-value">200+</span>
+                    <span class="metric-label">Quarterly Decisions</span>
+                  </div>
+                </div>
+                <div class="achievements">
+                  <div class="achievement-item">
+                    <strong>Data Pipeline Management:</strong> Handled end-to-end pipeline for student engagement data using Amazon Redshift and PostgreSQL for loading and cleaning 500+ records, improving accuracy by 25% and cutting processing time nearly in half
+                  </div>
+                  <div class="achievement-item">
+                    <strong>Dashboard Development:</strong> Built Power BI and Tableau dashboards with filters and auto-refresh to reduce report prep time and reveal student details, engagement patterns, and campaign outcomes
+                  </div>
+                  <div class="achievement-item">
+                    <strong>Documentation & Reporting:</strong> Documented workflows, schema layouts, and key findings in Confluence and GitHub, delivering reports and slide decks that informed 200+ decisions each quarter
+                  </div>
+                </div>
+                <div class="tech-stack">
+                  <span class="tech-tag">Amazon Redshift</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Power BI</span>
+                  <span class="tech-tag">Tableau</span>
+                  <span class="tech-tag">Confluence</span>
+                  <span class="tech-tag">GitHub</span>
+                </div>
+              </div>
             </div>
           </div>
+          
           <div class="timeline-item">
-            <div class="frosted-card">
-              <h3>People Analytics Intern</h3>
-              <h4>Auriv Learning</h4>
-              <div class="meta">
-                <span><i class="fa-regular fa-calendar"></i> Jan 2023 – Jul 2023</span>
-                <span><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+            <div class="experience-card frosted-card">
+              <div class="experience-header">
+                <div class="company-logo">
+                  <img src="Auriv_logo.png" alt="Auriv Learning Logo" loading="lazy">
+                </div>
+                <div class="experience-title-section">
+                  <h3 class="job-title">People Analytics Intern</h3>
+                  <h4 class="company-name">Auriv Learning</h4>
+                  <div class="experience-meta">
+                    <span class="duration"><i class="fa-regular fa-calendar"></i> Jan 2023 – Jul 2023</span>
+                    <span class="location"><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+                    <span class="employment-type"><i class="fa-solid fa-user-tie"></i> Internship</span>
+                  </div>
+                </div>
               </div>
-              <ul>
-                <li>Partnered with HR and data engineering to centralize BambooHR/Greenhouse data in Snowflake (Airflow ETL, schema design). Built recruiting, DEI, and headcount dashboards in Looker Studio and ran SQL/Python analyses. Weekly audits cut reporting discrepancies by 85%, and self-service views/guides reduced recurring Jira data tickets by 40%.</li>
-              </ul>
+              <div class="experience-content">
+                <div class="impact-highlights">
+                  <div class="impact-metric">
+                    <span class="metric-value">85%</span>
+                    <span class="metric-label">Reporting Discrepancies Cut</span>
+                  </div>
+                  <div class="impact-metric">
+                    <span class="metric-value">40%</span>
+                    <span class="metric-label">Tickets Reduced</span>
+                  </div>
+                  <div class="impact-metric">
+                    <span class="metric-value">3</span>
+                    <span class="metric-label">Dashboard Types</span>
+                  </div>
+                </div>
+                <div class="achievements">
+                  <div class="achievement-item">
+                    <strong>Data Centralization:</strong> Partnered with HR and data engineering to centralize BambooHR/Greenhouse data in Snowflake using Airflow ETL and schema design
+                  </div>
+                  <div class="achievement-item">
+                    <strong>Analytics Dashboards:</strong> Built recruiting, DEI, and headcount dashboards in Looker Studio and ran comprehensive SQL/Python analyses
+                  </div>
+                  <div class="achievement-item">
+                    <strong>Process Improvement:</strong> Weekly audits cut reporting discrepancies by 85%, and self-service views/guides reduced recurring Jira data tickets by 40%
+                  </div>
+                </div>
+                <div class="tech-stack">
+                  <span class="tech-tag">Snowflake</span>
+                  <span class="tech-tag">Airflow</span>
+                  <span class="tech-tag">BambooHR</span>
+                  <span class="tech-tag">Greenhouse</span>
+                  <span class="tech-tag">Looker Studio</span>
+                  <span class="tech-tag">SQL</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Jira</span>
+                </div>
+              </div>
             </div>
           </div>
+          
           <div class="timeline-item">
-            <div class="frosted-card">
-              <h3>Data Analyst Trainee</h3>
-              <h4>Microsoft · George Mason University</h4>
-              <div class="meta">
-                <span><i class="fa-regular fa-calendar"></i> Jun 2024 – Aug 2024</span>
-                <span><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+            <div class="experience-card frosted-card">
+              <div class="experience-header">
+                <div class="company-logo">
+                  <img src="GMU_logo.png" alt="Microsoft George Mason University Logo" loading="lazy">
+                </div>
+                <div class="experience-title-section">
+                  <h3 class="job-title">Data Analyst Trainee</h3>
+                  <h4 class="company-name">Microsoft · George Mason University</h4>
+                  <div class="experience-meta">
+                    <span class="duration"><i class="fa-regular fa-calendar"></i> Jun 2024 – Aug 2024</span>
+                    <span class="location"><i class="fa-solid fa-map-marker-alt"></i> Remote</span>
+                    <span class="employment-type"><i class="fa-solid fa-graduation-cap"></i> Training Program</span>
+                  </div>
+                </div>
               </div>
-              <ul>
-                <li>Built Synapse pipelines ingesting ~500 GB/day telemetry (-40% latency), delivered Power BI dashboards with custom DAX and R visuals that halved ad-hoc requests, and prototyped Azure ML + Python anomaly alerts that reduced incident resolution time by 15%.</li>
-              </ul>
+              <div class="experience-content">
+                <div class="impact-highlights">
+                  <div class="impact-metric">
+                    <span class="metric-value">500GB</span>
+                    <span class="metric-label">Daily Data Processing</span>
+                  </div>
+                  <div class="impact-metric">
+                    <span class="metric-value">40%</span>
+                    <span class="metric-label">Latency Reduction</span>
+                  </div>
+                  <div class="impact-metric">
+                    <span class="metric-value">15%</span>
+                    <span class="metric-label">Faster Resolution</span>
+                  </div>
+                </div>
+                <div class="achievements">
+                  <div class="achievement-item">
+                    <strong>Data Pipeline Development:</strong> Built Synapse pipelines ingesting ~500 GB/day telemetry with 40% latency reduction through optimized data processing workflows
+                  </div>
+                  <div class="achievement-item">
+                    <strong>Advanced Analytics:</strong> Delivered Power BI dashboards with custom DAX and R visuals that halved ad-hoc requests and improved self-service analytics adoption
+                  </div>
+                  <div class="achievement-item">
+                    <strong>ML Prototyping:</strong> Prototyped Azure ML + Python anomaly detection alerts that reduced incident resolution time by 15% through proactive monitoring
+                  </div>
+                </div>
+                <div class="tech-stack">
+                  <span class="tech-tag">Azure Synapse</span>
+                  <span class="tech-tag">Power BI</span>
+                  <span class="tech-tag">DAX</span>
+                  <span class="tech-tag">R</span>
+                  <span class="tech-tag">Azure ML</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Anomaly Detection</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
