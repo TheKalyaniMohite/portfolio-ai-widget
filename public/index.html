@@ -860,6 +860,213 @@
       }
     }
 
+    /* Enhanced Education Styles */
+    .education-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .education-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .education-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+    }
+
+    .education-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .degree-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .degree-badge.graduate {
+      background: linear-gradient(135deg, var(--purple-600), var(--accent-600));
+      color: white;
+    }
+
+    .degree-badge.undergraduate {
+      background: linear-gradient(135deg, var(--accent-600), #10b981);
+      color: white;
+    }
+
+    .education-period {
+      text-align: right;
+    }
+
+    .period-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--accent-400);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .period-dates {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-300);
+      margin-top: 0.25rem;
+    }
+
+    .education-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .degree-info {
+      text-align: center;
+    }
+
+    .degree-title {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5rem;
+      font-family: var(--font-display);
+      color: var(--text-100);
+      font-weight: 700;
+    }
+
+    .university-name {
+      margin: 0 0 0.75rem 0;
+      font-size: 1.1rem;
+      color: var(--accent-500);
+      font-weight: 600;
+    }
+
+    .location-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--text-400);
+      font-size: 0.9rem;
+    }
+
+    .academic-achievements {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .achievement-item.gpa-highlight {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(63, 184, 255, 0.1);
+      border: 1px solid rgba(63, 184, 255, 0.2);
+      border-radius: 12px;
+    }
+
+    .achievement-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      color: white;
+    }
+
+    .achievement-details {
+      text-align: center;
+    }
+
+    .achievement-value {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-100);
+      font-family: var(--font-display);
+    }
+
+    .achievement-desc {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--accent-400);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .coursework-section h5 {
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+      color: var(--text-100);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .course-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.8rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      color: var(--text-300);
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .course-tag.advanced {
+      background: rgba(168, 85, 247, 0.15);
+      border-color: rgba(168, 85, 247, 0.3);
+      color: #c084fc;
+    }
+
+    .course-tag:hover {
+      background: rgba(63, 184, 255, 0.15);
+      border-color: rgba(63, 184, 255, 0.3);
+      color: var(--accent-300);
+      transform: translateY(-1px);
+    }
+
+    .education-description {
+      text-align: center;
+      line-height: 1.6;
+      color: var(--text-200);
+      font-size: 0.95rem;
+    }
+
+    .education-description strong {
+      color: var(--accent-400);
+      font-weight: 600;
+    }
+
     .frosted-card {
       position: relative;
       background: rgba(33, 38, 45, 0.6);
@@ -2350,6 +2557,44 @@
         font-size: 0.85rem;
       }
 
+      /* Enhanced Education Mobile Styles */
+      .education-timeline {
+        gap: 1.5rem;
+      }
+
+      .education-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .degree-title {
+        font-size: 1.25rem;
+      }
+
+      .university-name {
+        font-size: 1rem;
+      }
+
+      .achievement-item.gpa-highlight {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem;
+      }
+
+      .course-tags {
+        gap: 0.4rem;
+      }
+
+      .course-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
+
+      .education-description {
+        font-size: 0.9rem;
+      }
+
       #chat-toggle {
         width: 56px;
         height: 56px;
@@ -3101,29 +3346,115 @@
       <div class="inner">
         <div class="section-heading">
           <span>Education</span>
-        </div>
-        <div class="card-grid">
-          <article class="frosted-card">
-            <div class="card-title">Master of Science · Computer Science</div>
-            <div class="card-subtitle">George Mason University · 2023 – 2025</div>
-            <div class="card-meta">
-              <span><i class="fa-solid fa-award"></i> GPA 3.9</span>
-              <span><i class="fa-solid fa-book-open"></i> ML · Generative AI · Data Mining · Algorithms</span>
+          <div class="section-stats">
+            <div class="stat-item">
+              <span class="stat-number">3.7</span>
+              <span class="stat-label">Cumulative GPA</span>
             </div>
-            <div class="card-body">
-              Built production-grade systems that blend research-backed methods with real-world data pipelines and storytelling for stakeholders.
+            <div class="stat-item">
+              <span class="stat-number">7</span>
+              <span class="stat-label">Years of Study</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Degrees Earned</span>
+            </div>
+          </div>
+        </div>
+        <div class="education-timeline">
+          <article class="education-card frosted-card">
+            <div class="education-header">
+              <div class="degree-badge graduate">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Graduate Degree</span>
+              </div>
+              <div class="education-period">
+                <span class="period-label">Current</span>
+                <span class="period-dates">2023 – 2025</span>
+              </div>
+            </div>
+            <div class="education-content">
+              <div class="degree-info">
+                <h3 class="degree-title">Master of Science in Computer Science</h3>
+                <h4 class="university-name">George Mason University</h4>
+                <div class="location-info">
+                  <i class="fa-solid fa-map-marker-alt"></i>
+                  <span>Fairfax, Virginia, USA</span>
+                </div>
+              </div>
+              <div class="academic-achievements">
+                <div class="achievement-item gpa-highlight">
+                  <div class="achievement-icon">
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="achievement-details">
+                    <span class="achievement-value">3.9 GPA</span>
+                    <span class="achievement-desc">Dean's List Recognition</span>
+                  </div>
+                </div>
+                <div class="coursework-section">
+                  <h5>Relevant Coursework</h5>
+                  <div class="course-tags">
+                    <span class="course-tag advanced">Machine Learning</span>
+                    <span class="course-tag advanced">Generative AI</span>
+                    <span class="course-tag">Data Mining</span>
+                    <span class="course-tag">Advanced Algorithms</span>
+                    <span class="course-tag">Database Systems</span>
+                    <span class="course-tag">Software Engineering</span>
+                  </div>
+                </div>
+                <div class="education-description">
+                  <strong>Focus:</strong> Built production-grade systems that blend research-backed methods with real-world data pipelines and storytelling for stakeholders. Specialized in AI/ML applications for business analytics and data-driven decision making.
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="frosted-card">
-            <div class="card-title">Bachelor of Engineering · Computer Science and Engineering</div>
-            <div class="card-subtitle">University of Pune · 2018 – 2022</div>
-            <div class="card-meta">
-              <span><i class="fa-solid fa-award"></i> GPA 3.5</span>
-              <span><i class="fa-solid fa-lightbulb"></i> Full-stack foundations · Data structures · Big Data Analytics · Statistical Analysis · Business Intelligence and Analytics</span>
+          <article class="education-card frosted-card">
+            <div class="education-header">
+              <div class="degree-badge undergraduate">
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Undergraduate Degree</span>
+              </div>
+              <div class="education-period">
+                <span class="period-label">Completed</span>
+                <span class="period-dates">2018 – 2022</span>
+              </div>
             </div>
-            <div class="card-body">
-              Strengthened software engineering fundamentals, teamwork, and applied statistics through capstone products and hackathons.
+            <div class="education-content">
+              <div class="degree-info">
+                <h3 class="degree-title">Bachelor of Engineering in Computer Science and Engineering</h3>
+                <h4 class="university-name">University of Pune</h4>
+                <div class="location-info">
+                  <i class="fa-solid fa-map-marker-alt"></i>
+                  <span>Maharashtra, India</span>
+                </div>
+              </div>
+              <div class="academic-achievements">
+                <div class="achievement-item gpa-highlight">
+                  <div class="achievement-icon">
+                    <i class="fa-solid fa-medal"></i>
+                  </div>
+                  <div class="achievement-details">
+                    <span class="achievement-value">3.5 GPA</span>
+                    <span class="achievement-desc">First Class Honors</span>
+                  </div>
+                </div>
+                <div class="coursework-section">
+                  <h5>Core Competencies</h5>
+                  <div class="course-tags">
+                    <span class="course-tag">Data Structures & Algorithms</span>
+                    <span class="course-tag">Big Data Analytics</span>
+                    <span class="course-tag">Statistical Analysis</span>
+                    <span class="course-tag">Business Intelligence</span>
+                    <span class="course-tag">Software Development</span>
+                    <span class="course-tag">Database Management</span>
+                  </div>
+                </div>
+                <div class="education-description">
+                  <strong>Foundation:</strong> Strengthened software engineering fundamentals, teamwork, and applied statistics through capstone projects and hackathons. Built strong foundation in computer science principles and data analysis methodologies.
+                </div>
+              </div>
             </div>
           </article>
         </div>
