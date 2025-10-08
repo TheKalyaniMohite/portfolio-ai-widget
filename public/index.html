@@ -54,6 +54,7 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 100px;
+      overflow-x: hidden;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -85,6 +86,8 @@
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     a {
@@ -233,6 +236,8 @@
       padding: 0 clamp(1.5rem, 4vw, 3rem);
       position: relative;
       z-index: 2;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* Subtle background elements for visual interest */
@@ -244,10 +249,10 @@
       content: "";
       position: absolute;
       top: 50%;
-      right: -10%;
+      right: -5%;
       transform: translateY(-50%);
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
       background: radial-gradient(circle, rgba(63, 184, 255, 0.02), transparent 70%);
       border-radius: 50%;
       z-index: 1;
@@ -2660,6 +2665,12 @@
 
       .dashboard-modal-body {
         padding: 0 1.1rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section:nth-child(even)::before {
+        display: none;
       }
     }
 
