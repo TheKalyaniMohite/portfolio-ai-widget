@@ -622,44 +622,15 @@
 
     .timeline {
       position: relative;
-      padding-left: 2rem;
+      padding-left: 0;
       display: flex;
       flex-direction: column;
       gap: 2.5rem;
     }
 
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        var(--accent-gradient) 10%,
-        var(--accent-gradient) 90%,
-        transparent 100%
-      );
-      border-radius: 1px;
-    }
-
     .timeline-item {
       position: relative;
-      padding-left: 2rem;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -0.6rem;
-      top: 1rem;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent-gradient);
-      box-shadow: 0 0 0 4px var(--bg-950), 0 0 12px rgba(63, 184, 255, 0.4);
+      padding-left: 0;
     }
 
     .timeline-item .frosted-card {
@@ -2962,15 +2933,11 @@
       }
 
       .timeline {
-        padding-left: 0.8rem;
+        padding-left: 0;
       }
 
       .timeline-item {
-        padding-left: 1rem;
-      }
-
-      .timeline-item::before {
-        left: -1.45rem;
+        padding-left: 0;
       }
 
       /* Enhanced Experience Mobile Styles */
