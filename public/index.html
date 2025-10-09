@@ -1830,6 +1830,193 @@
       font-weight: 500;
     }
 
+    /* Premium Skills Section Styles */
+    .skills-category.premium {
+      margin-bottom: 3.5rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(33, 38, 45, 0.6) 0%, rgba(33, 38, 45, 0.3) 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-category.premium::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-500), var(--accent-400), var(--accent-300));
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .category-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent-500), var(--accent-600));
+      box-shadow: 0 8px 32px rgba(63, 184, 255, 0.2);
+    }
+
+    .category-icon i {
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .category-info h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.6rem;
+      color: var(--text-100);
+      font-weight: 700;
+    }
+
+    .category-subtitle {
+      margin: 0;
+      color: var(--text-300);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .premium-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .skill-card.premium-card {
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--surface-800) 0%, var(--surface-900) 100%);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      border-radius: var(--radius-md);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card.premium-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-500), var(--accent-400));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .skill-card.premium-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(63, 184, 255, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 8px 32px rgba(63, 184, 255, 0.15);
+    }
+
+    .skill-card.premium-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .skill-icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, rgba(63, 184, 255, 0.1), rgba(63, 184, 255, 0.05));
+      border: 1px solid rgba(63, 184, 255, 0.2);
+    }
+
+    .skill-icon {
+      font-size: 1.6rem;
+      color: var(--accent-400);
+    }
+
+    .skill-icon.python-icon { color: #3776ab; }
+    .skill-icon.sql-icon { color: #f29111; }
+    .skill-icon.excel-icon { color: #217346; }
+    .skill-icon.google-icon { color: #4285f4; }
+    .skill-icon.bigquery-icon { color: #ea4335; }
+    .skill-icon.vscode-icon { color: #007acc; }
+    .skill-icon.powerbi-icon { color: #f2c811; }
+    .skill-icon.tableau-icon { color: #e97627; }
+    .skill-icon.looker-icon { color: #4285f4; }
+    .skill-icon.aws-icon { color: #ff9900; }
+    .skill-icon.azure-icon { color: #0078d4; }
+    .skill-icon.devops-icon { color: #326ce5; }
+    .skill-icon.eda-icon { color: #17a2b8; }
+    .skill-icon.regression-icon { color: #28a745; }
+    .skill-icon.logistic-icon { color: #dc3545; }
+    .skill-icon.testing-icon { color: #6f42c1; }
+
+    .skill-content {
+      flex: 1;
+    }
+
+    .skill-title {
+      margin: 0 0 1rem 0;
+      font-size: 1.2rem;
+      color: var(--text-100);
+      font-weight: 600;
+    }
+
+    .skill-content .skill-description {
+      margin-bottom: 1.2rem;
+      color: var(--text-300);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .skill-highlight {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1rem;
+      background: rgba(63, 184, 255, 0.08);
+      border-left: 3px solid var(--accent-400);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 1rem;
+    }
+
+    .skill-highlight i {
+      color: var(--accent-400);
+      font-size: 0.9rem;
+    }
+
+    .skill-highlight span {
+      color: var(--text-200);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .skill-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .skill-tag {
+      padding: 0.3rem 0.8rem;
+      background: rgba(148, 163, 184, 0.1);
+      color: var(--text-300);
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
     .dashboard-card {
       background: var(--surface-900);
       padding: clamp(1.6rem, 3vw, 2.2rem);
@@ -2690,6 +2877,54 @@
 
       .certification-card {
         padding: 1rem;
+      }
+
+      /* Premium Skills Mobile Responsive */
+      .skills-category.premium {
+        padding: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .category-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .category-icon i {
+        font-size: 1.5rem;
+      }
+
+      .category-info h3 {
+        font-size: 1.4rem;
+      }
+
+      .premium-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .skill-card.premium-card {
+        padding: 1.5rem;
+      }
+
+      .skill-icon-wrapper {
+        width: 48px;
+        height: 48px;
+      }
+
+      .skill-icon {
+        font-size: 1.4rem;
+      }
+
+      .skill-title {
+        font-size: 1.1rem;
       }
     }
 
@@ -3699,40 +3934,51 @@
         </div>
         
         <!-- Programming Skills -->
-        <div class="skills-category">
-          <h3 class="skills-category-title">
-            <i class="fa-solid fa-code"></i>
-            Programming Skills
-          </h3>
-          <div class="skills-grid" id="skillsGrid">
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-brands fa-python"></i> Python</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge expert">Expert</span>
-                </div>
+        <div class="skills-category premium">
+          <div class="category-header">
+            <div class="category-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="category-info">
+              <h3 class="skills-category-title">Programming Skills</h3>
+              <p class="category-subtitle">Core development technologies for data solutions</p>
+            </div>
+          </div>
+          <div class="skills-grid premium-grid" id="skillsGrid">
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-brands fa-python skill-icon python-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">ETL pipelines, data analysis, automation, machine learning</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Python</h4>
+                <p class="skill-description">Building robust ETL pipelines, advanced data analysis, process automation, and machine learning implementations</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-chart-line"></i>
                   <span>Reduced manual effort by 40% through ETL optimization</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="skill-tag">Pandas</span>
+                  <span class="skill-tag">NumPy</span>
+                  <span class="skill-tag">Scikit-learn</span>
                 </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-database"></i> SQL</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge expert">Expert</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-database skill-icon sql-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Complex queries, data modeling, performance optimization</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">SQL</h4>
+                <p class="skill-description">Crafting complex queries, designing efficient data models, and optimizing database performance for large-scale analytics</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-clock"></i>
                   <span>Reduced pipeline runtime by 40% with query optimization</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="skill-tag">PostgreSQL</span>
+                  <span class="skill-tag">BigQuery</span>
+                  <span class="skill-tag">Redshift</span>
                 </div>
               </div>
             </div>
@@ -3740,70 +3986,67 @@
         </div>
 
         <!-- Data Analytics Tools -->
-        <div class="skills-category">
-          <h3 class="skills-category-title">
-            <i class="fa-solid fa-table"></i>
-            Data Analytics Tools
-          </h3>
-          <div class="skills-grid">
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-file-excel"></i> MS Excel</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge expert">Expert</span>
-                </div>
+        <div class="skills-category premium">
+          <div class="category-header">
+            <div class="category-icon">
+              <i class="fa-solid fa-table"></i>
+            </div>
+            <div class="category-info">
+              <h3 class="skills-category-title">Data Analytics Tools</h3>
+              <p class="category-subtitle">Professional tools for data manipulation and analysis</p>
+            </div>
+          </div>
+          <div class="skills-grid premium-grid">
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-file-excel skill-icon excel-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Advanced formulas, pivot tables, data analysis, automation</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Microsoft Excel</h4>
+                <p class="skill-description">Advanced formulas, pivot tables, complex data analysis, and workflow automation for business intelligence</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-cogs"></i>
                   <span>Automated reporting workflows for business users</span>
                 </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-brands fa-google"></i> Google Sheets</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge advanced">Advanced</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-brands fa-google skill-icon google-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Collaborative analysis, Apps Script, real-time data sharing</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Google Sheets</h4>
+                <p class="skill-description">Collaborative data analysis, Apps Script automation, and real-time team data sharing solutions</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-users"></i>
                   <span>Enhanced team collaboration with cloud-based analytics</span>
                 </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-brands fa-google"></i> Google BigQuery</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge advanced">Advanced</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-brands fa-google skill-icon bigquery-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Large-scale data processing, SQL optimization, data warehousing</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Google BigQuery</h4>
+                <p class="skill-description">Large-scale data processing, advanced SQL optimization, and enterprise data warehousing solutions</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-database"></i>
                   <span>Processed massive datasets with cloud-native architecture</span>
                 </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-code"></i> Visual Studio Code</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge advanced">Advanced</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-code skill-icon vscode-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Development environment, debugging, extensions, Git integration</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Visual Studio Code</h4>
+                <p class="skill-description">Professional development environment with advanced debugging, extensions, and integrated Git workflow</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-rocket"></i>
                   <span>Streamlined development workflow and productivity</span>
                 </div>
@@ -3813,56 +4056,69 @@
         </div>
 
         <!-- Data Visualization Tools -->
-        <div class="skills-category">
-          <h3 class="skills-category-title">
-            <i class="fa-solid fa-chart-bar"></i>
-            Data Visualization Tools
-          </h3>
-          <div class="skills-grid">
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-chart-simple"></i> Power BI</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge expert">Expert</span>
-                </div>
+        <div class="skills-category premium">
+          <div class="category-header">
+            <div class="category-icon">
+              <i class="fa-solid fa-chart-bar"></i>
+            </div>
+            <div class="category-info">
+              <h3 class="skills-category-title">Data Visualization Tools</h3>
+              <p class="category-subtitle">Transforming data into compelling visual stories</p>
+            </div>
+          </div>
+          <div class="skills-grid premium-grid">
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-chart-simple skill-icon powerbi-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">DAX formulas, R visuals, interactive dashboards, data modeling</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Power BI</h4>
+                <p class="skill-description">Advanced DAX formulas, R visuals integration, interactive dashboards, and comprehensive data modeling for executive reporting</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-clock"></i>
                   <span>Reduced report time by 30% with automated dashboards</span>
                 </div>
+                <div class="skill-tags">
+                  <span class="skill-tag">DAX</span>
+                  <span class="skill-tag">R Integration</span>
+                  <span class="skill-tag">Power Query</span>
+                </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-chart-line"></i> Tableau</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge advanced">Advanced</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-chart-line skill-icon tableau-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Interactive dashboards, data storytelling, public publishing</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Tableau</h4>
+                <p class="skill-description">Creating interactive dashboards, advanced data storytelling, and public portfolio showcase visualizations</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-eye"></i>
                   <span>Created comprehensive public dashboards for portfolio showcase</span>
                 </div>
+                <div class="skill-tags">
+                  <span class="skill-tag">Public Publishing</span>
+                  <span class="skill-tag">Calculated Fields</span>
+                  <span class="skill-tag">Story Points</span>
+                </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-brands fa-google"></i> Looker Studio</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge intermediate">Intermediate</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-brands fa-google skill-icon looker-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Google-native reporting, automated dashboards, data connectors</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Looker Studio</h4>
+                <p class="skill-description">Google-native reporting solutions, automated dashboard creation, and seamless data connector integrations</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-sync"></i>
                   <span>Built automated reporting solutions with Google ecosystem</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="skill-tag">Google Analytics</span>
+                  <span class="skill-tag">Real-time Data</span>
                 </div>
               </div>
             </div>
@@ -3870,56 +4126,68 @@
         </div>
 
         <!-- Cloud & Infrastructure -->
-        <div class="skills-category">
-          <h3 class="skills-category-title">
-            <i class="fa-solid fa-cloud"></i>
-            Cloud & Infrastructure
-          </h3>
-          <div class="skills-grid">
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-brands fa-aws"></i> AWS</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge advanced">Advanced</span>
-                </div>
+        <div class="skills-category premium">
+          <div class="category-header">
+            <div class="category-icon">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <div class="category-info">
+              <h3 class="skills-category-title">Cloud & Infrastructure</h3>
+              <p class="category-subtitle">Scalable cloud solutions and modern deployment practices</p>
+            </div>
+          </div>
+          <div class="skills-grid premium-grid">
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-brands fa-aws skill-icon aws-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">S3, Redshift, Lambda, SageMaker, data lake architecture</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Amazon Web Services</h4>
+                <p class="skill-description">Building robust data lake architectures with S3, Redshift, Lambda, and SageMaker for scalable analytics solutions</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-chart-line"></i>
                   <span>Migrated 1 TB data improving campaign ROI by 20%</span>
                 </div>
+                <div class="skill-tags">
+                  <span class="skill-tag">S3</span>
+                  <span class="skill-tag">Redshift</span>
+                  <span class="skill-tag">Lambda</span>
+                </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-brands fa-microsoft"></i> Azure</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge intermediate">Intermediate</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-brands fa-microsoft skill-icon azure-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Azure Synapse, ML Studio, data pipelines, anomaly detection</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Microsoft Azure</h4>
+                <p class="skill-description">Implementing Azure Synapse pipelines, ML Studio workflows, and enterprise-grade data processing solutions</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-tachometer-alt"></i>
                   <span>Reduced latency by 40% processing 500 GB/day</span>
                 </div>
+                <div class="skill-tags">
+                  <span class="skill-tag">Synapse</span>
+                  <span class="skill-tag">ML Studio</span>
+                </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-code-branch"></i> DevOps & MLOps</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge intermediate">Intermediate</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-code-branch skill-icon devops-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Docker, CI/CD, model deployment, monitoring</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">DevOps & MLOps</h4>
+                <p class="skill-description">Streamlining deployment workflows with Docker containerization, CI/CD pipelines, and model monitoring systems</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-rocket"></i>
                   <span>Accelerated deployment cycle by 50%</span>
+                </div>
+                <div class="skill-tags">
+                  <span class="skill-tag">Docker</span>
+                  <span class="skill-tag">CI/CD</span>
                 </div>
               </div>
             </div>
@@ -3927,70 +4195,67 @@
         </div>
 
         <!-- Analytics Methods -->
-        <div class="skills-category">
-          <h3 class="skills-category-title">
-            <i class="fa-solid fa-chart-line"></i>
-            Analytics Methods
-          </h3>
-          <div class="skills-grid">
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-search"></i> EDA</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge expert">Expert</span>
-                </div>
+        <div class="skills-category premium">
+          <div class="category-header">
+            <div class="category-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="category-info">
+              <h3 class="skills-category-title">Analytics Methods</h3>
+              <p class="category-subtitle">Advanced statistical techniques and experimental design</p>
+            </div>
+          </div>
+          <div class="skills-grid premium-grid">
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-search skill-icon eda-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Exploratory Data Analysis, pattern discovery, data profiling</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Exploratory Data Analysis</h4>
+                <p class="skill-description">Comprehensive data profiling, pattern discovery, and statistical summarization to uncover hidden insights</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-magnifying-glass"></i>
                   <span>Uncovered key insights through comprehensive data exploration</span>
                 </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-line-chart"></i> Linear Regression</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge advanced">Advanced</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-line-chart skill-icon regression-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Predictive modeling, trend analysis, relationship quantification</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Linear Regression</h4>
+                <p class="skill-description">Building predictive models, conducting trend analysis, and quantifying relationships between variables</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-trending-up"></i>
                   <span>Built predictive models for business forecasting</span>
                 </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-toggle-on"></i> Logistic Regression</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge advanced">Advanced</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-toggle-on skill-icon logistic-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Classification problems, churn prediction, binary outcomes</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">Logistic Regression</h4>
+                <p class="skill-description">Solving classification problems, predicting customer churn, and analyzing binary outcome scenarios</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-target"></i>
                   <span>Achieved 85%+ accuracy in churn prediction models</span>
                 </div>
               </div>
             </div>
             
-            <div class="skill-card enhanced">
-              <div class="skill-header">
-                <h4><i class="fa-solid fa-balance-scale"></i> A/B Testing</h4>
-                <div class="skill-badges">
-                  <span class="skill-badge advanced">Advanced</span>
-                </div>
+            <div class="skill-card premium-card">
+              <div class="skill-icon-wrapper">
+                <i class="fa-solid fa-balance-scale skill-icon testing-icon"></i>
               </div>
-              <div class="skill-details">
-                <span class="skill-description">Experimental design, hypothesis testing, statistical significance</span>
-                <div class="skill-impact">
+              <div class="skill-content">
+                <h4 class="skill-title">A/B Testing</h4>
+                <p class="skill-description">Designing controlled experiments, conducting hypothesis testing, and measuring statistical significance</p>
+                <div class="skill-highlight">
                   <i class="fa-solid fa-vial"></i>
                   <span>Conducted A/B tests for recommendation system optimization</span>
                 </div>
