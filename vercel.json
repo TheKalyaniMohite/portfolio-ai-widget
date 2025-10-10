@@ -2,9 +2,6 @@
     "rewrites": [
       { "source": "/", "destination": "/public/index.html" },
       { "source": "/(.*)", "destination": "/public/$1" }
-    ],
-    "analytics": {
-      "enable": true
-    }
+    ]
   }
   
