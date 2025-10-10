@@ -11,11 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
   
-  <!-- Vercel Analytics -->
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
   <script>
+    // Initialize analytics queue
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
-  <script defer src="/_vercel/insights/script.js"></script>
 
   <style>
     :root {
@@ -4332,14 +4333,8 @@
 
       if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-      // Initialize Vercel Analytics tracking
-      if (typeof window.va !== 'undefined') {
-        // Track page view
-        window.va('track', 'page_view', {
-          page: window.location.pathname,
-          title: document.title
-        });
-      }
+      // Initialize Vercel Web Analytics
+      // Page views are automatically tracked by the script
 
       const closeNav = () => {
         siteNav.classList.remove('open');
@@ -4609,71 +4604,7 @@
         });
       });
 
-      // Analytics tracking for user interactions
-      if (typeof window.va !== 'undefined') {
-        // Track social link clicks
-        document.querySelectorAll('.social-link').forEach(link => {
-          link.addEventListener('click', () => {
-            const platform = link.getAttribute('aria-label') || 'Social';
-            window.va('track', 'social_click', { platform });
-          });
-        });
-
-        // Track project link clicks
-        document.querySelectorAll('.project-link').forEach(link => {
-          link.addEventListener('click', () => {
-            const linkText = link.textContent.trim();
-            const projectTitle = link.closest('.expandable-project')?.querySelector('.project-title')?.textContent || 'Unknown';
-            window.va('track', 'project_link_click', { 
-              project: projectTitle,
-              link_type: linkText
-            });
-          });
-        });
-
-        // Track navigation clicks
-        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-          link.addEventListener('click', () => {
-            const section = link.getAttribute('href').replace('#', '');
-            window.va('track', 'navigation_click', { section });
-          });
-        });
-
-        // Track project expansions
-        document.querySelectorAll('.expandable-project').forEach(project => {
-          project.addEventListener('click', () => {
-            const projectTitle = project.querySelector('.project-title')?.textContent || 'Unknown';
-            const isExpanded = project.classList.contains('expanded');
-            window.va('track', 'project_toggle', { 
-              project: projectTitle,
-              action: isExpanded ? 'collapse' : 'expand'
-            });
-          });
-        });
-
-        // Track dashboard modal opens
-        document.querySelectorAll('[data-dashboard-preview]').forEach(link => {
-          link.addEventListener('click', () => {
-            const dashboardName = link.closest('.dashboard-card')?.querySelector('h3')?.textContent || 'Unknown';
-            window.va('track', 'dashboard_view', { dashboard: dashboardName });
-          });
-        });
-
-        // Track chat interactions
-        const chatToggle = document.getElementById('chat-toggle');
-        if (chatToggle) {
-          chatToggle.addEventListener('click', () => {
-            window.va('track', 'chat_toggle');
-          });
-        }
-
-        const chatSend = document.getElementById('chat-send');
-        if (chatSend) {
-          chatSend.addEventListener('click', () => {
-            window.va('track', 'chat_message_sent');
-          });
-        }
-      }
+      // Vercel Analytics will automatically track page views and basic interactions
 
       // Admin access - Press Ctrl+Shift+A to access admin panel
       let adminKeySequence = [];
